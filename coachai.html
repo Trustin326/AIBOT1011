@@ -1,0 +1,75 @@
+<!doctype html><html lang="en" ><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CoachAI • Tha Doll House</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="main.js"></script>
+<style>:root{--accent:#0B7F86;}</style>
+</head><body >
+<nav class="nav"><div class="nav-inner">
+  <div class="logo">Tha Doll House</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#bots">Bots</a>
+  </div>
+</div></nav>
+<div class="container">
+
+<section class="hero">
+  <div class="hero-card gold">
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      <div class="h1">Tha Doll House</div>
+      <span class="badge">$39</span>
+    </div>
+    <div class="h2" style="color:var(--accent)">CoachAI</div>
+    <div class="lead">Level Up Your Life and Focus</div>
+    <ul class="features"><li>Habit Tracker</li>
+<li>Affirmation Maker</li>
+<li>Goal Map</li>
+<li>Progress Chart</li></ul>
+    <div class="hero-cta">
+      <button class="btn btn-gold" onclick="alert('Replace with your Stripe link for CoachAI.')">Buy Now</button>
+      <a class="btn btn-accent" href="index.html#bots">Back</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <img src="card_coachai.png" alt="CoachAI" style="width:100%;border-radius:14px" onerror="this.style.display='none'">
+    <div id="demo-coachai" class="demo" data-mode="chat">
+      <div class="help"><b>How to use:</b> Pick <u>Chat Mode</u> to type your message or select a feature in <u>Feature Mode</u>. Use <b>Copy Sample</b> to paste a proven prompt, then press <b>Run</b>.</div>
+      <div class="tabs">
+        <button class="btn btn-accent tab-chat">💬 Chat Mode</button>
+        <button class="btn btn-ghost tab-feature">📄 Feature Mode</button>
+        <select class="sample" style="margin-left:auto"><option value='Habits'>Habits</option>
+<option value='Affirmations'>Affirmations</option>
+<option value='Timeline'>Timeline</option></select>
+      </div>
+      <div class="h3">Sample prompt</div>
+      <textarea class="prompt" placeholder="A helpful example will appear here…"></textarea>
+      <div class="row">
+        <button class="btn btn-ghost copy">Copy Sample</button>
+      </div>
+      <div class="h3">Your chat message</div>
+      <textarea class="chat" placeholder="Type here to chat with CoachAI…"></textarea>
+      <div class="examples"><button class='ex' data-fill='Focus plan for student finals'>• Focus plan for student finals</button>
+<button class='ex' data-fill='Affirmations for new managers'>• Affirmations for new managers</button>
+<button class='ex' data-fill='30-day roadmap to read 3 books'>• 30-day roadmap to read 3 books</button></div>
+      <div class="row">
+        <button class="btn btn-accent run">Run</button>
+        <button class="btn btn-ghost" onclick="this.closest('.demo').querySelectorAll('textarea').forEach(t=>t.value='')">Clear</button>
+      </div>
+      <div class="output"></div>
+      <div class="small" style="margin-top:6px">This is a simulated preview for buyers.</div>
+    </div>
+  </div>
+</section>
+<script>
+document.addEventListener('DOMContentLoaded', ()=> {
+  initDemo('demo-coachai', {
+    welcome: "Hi, I'm CoachAI! Try Chat or Feature Mode.",
+    example: "Design a 2-week habit plan using 20-minute focus blocks.",
+    prompts: {"Habits": "Design a 2-week habit plan using 20-minute focus blocks.", "Affirmations": "Create 10 affirmations for confidence and consistency.", "Timeline": "Map the next 30 days to finish a mini-course."},
+    samples: {"Habits": "Example Habits result...", "Affirmations": "Example Affirmations result...", "Timeline": "Example Timeline result..."},
+    reply: (q)=>"CoachAI preview: " + q + "\n• Option A\n• Option B\n• Option C"
+  });
+});
+</script>
+</div><div class="footer">© Tha Doll House</div></body></html>

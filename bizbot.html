@@ -1,0 +1,75 @@
+<!doctype html><html lang="en" ><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BizBot • Tha Doll House</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="main.js"></script>
+<style>:root{--accent:#0B7F86;}</style>
+</head><body >
+<nav class="nav"><div class="nav-inner">
+  <div class="logo">Tha Doll House</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#bots">Bots</a>
+  </div>
+</div></nav>
+<div class="container">
+
+<section class="hero">
+  <div class="hero-card gold">
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      <div class="h1">Tha Doll House</div>
+      <span class="badge">$39</span>
+    </div>
+    <div class="h2" style="color:var(--accent)">BizBot</div>
+    <div class="lead">Turn Ideas Into Income</div>
+    <ul class="features"><li>Idea Generator</li>
+<li>Offer Writer</li>
+<li>Funnel Planner</li>
+<li>ROI Estimator</li></ul>
+    <div class="hero-cta">
+      <button class="btn btn-gold" onclick="alert('Replace with your Stripe link for BizBot.')">Buy Now</button>
+      <a class="btn btn-accent" href="index.html#bots">Back</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <img src="card_bizbot.png" alt="BizBot" style="width:100%;border-radius:14px" onerror="this.style.display='none'">
+    <div id="demo-bizbot" class="demo" data-mode="chat">
+      <div class="help"><b>How to use:</b> Pick <u>Chat Mode</u> to type your message or select a feature in <u>Feature Mode</u>. Use <b>Copy Sample</b> to paste a proven prompt, then press <b>Run</b>.</div>
+      <div class="tabs">
+        <button class="btn btn-accent tab-chat">💬 Chat Mode</button>
+        <button class="btn btn-ghost tab-feature">📄 Feature Mode</button>
+        <select class="sample" style="margin-left:auto"><option value='Plan'>Plan</option>
+<option value='Ad Copy'>Ad Copy</option>
+<option value='Funnel'>Funnel</option></select>
+      </div>
+      <div class="h3">Sample prompt</div>
+      <textarea class="prompt" placeholder="A helpful example will appear here…"></textarea>
+      <div class="row">
+        <button class="btn btn-ghost copy">Copy Sample</button>
+      </div>
+      <div class="h3">Your chat message</div>
+      <textarea class="chat" placeholder="Type here to chat with BizBot…"></textarea>
+      <div class="examples"><button class='ex' data-fill='3 $7 ideas for travel nurses'>• 3 $7 ideas for travel nurses</button>
+<button class='ex' data-fill='Cold DM script for $7 checklist'>• Cold DM script for $7 checklist</button>
+<button class='ex' data-fill='Upsell ideas after $7 purchase'>• Upsell ideas after $7 purchase</button></div>
+      <div class="row">
+        <button class="btn btn-accent run">Run</button>
+        <button class="btn btn-ghost" onclick="this.closest('.demo').querySelectorAll('textarea').forEach(t=>t.value='')">Clear</button>
+      </div>
+      <div class="output"></div>
+      <div class="small" style="margin-top:6px">This is a simulated preview for buyers.</div>
+    </div>
+  </div>
+</section>
+<script>
+document.addEventListener('DOMContentLoaded', ()=> {
+  initDemo('demo-bizbot', {
+    welcome: "Hi, I'm BizBot! Try Chat or Feature Mode.",
+    example: "Give me 3 product ideas for busy moms I can sell for $7.",
+    prompts: {"Plan": "Give me 3 product ideas for busy moms I can sell for $7.", "Ad Copy": "Write a Facebook ad for a $7 meal-planning guide. Tone: friendly.", "Funnel": "Outline a 3-step funnel for a $7 ebook + order bump."},
+    samples: {"Plan": "Example Plan result...", "Ad Copy": "Example Ad Copy result...", "Funnel": "Example Funnel result..."},
+    reply: (q)=>"BizBot preview: " + q + "\n• Option A\n• Option B\n• Option C"
+  });
+});
+</script>
+</div><div class="footer">© Tha Doll House</div></body></html>

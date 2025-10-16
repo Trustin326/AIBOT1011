@@ -1,0 +1,75 @@
+<!doctype html><html lang="en" class="dark"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GlamBot • Tha Doll House</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="main.js"></script>
+<style>:root{--accent:#D4AF37;}</style>
+</head><body class="dark">
+<nav class="nav"><div class="nav-inner">
+  <div class="logo">Tha Doll House</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#bots">Bots</a>
+  </div>
+</div></nav>
+<div class="container">
+
+<section class="hero">
+  <div class="hero-card gold">
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      <div class="h1">Tha Doll House</div>
+      <span class="badge">$39</span>
+    </div>
+    <div class="h2" style="color:var(--accent)">GlamBot</div>
+    <div class="lead">Style, Beauty & Confidence</div>
+    <ul class="features"><li>Beauty Tips</li>
+<li>Skincare Picks</li>
+<li>Outfit Ideas</li>
+<li>Confidence Boosts</li></ul>
+    <div class="hero-cta">
+      <button class="btn btn-gold" onclick="alert('Replace with your Stripe link for GlamBot.')">Buy Now</button>
+      <a class="btn btn-accent" href="index.html#bots">Back</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <img src="card_glambot.png" alt="GlamBot" style="width:100%;border-radius:14px" onerror="this.style.display='none'">
+    <div id="demo-glambot" class="demo" data-mode="chat">
+      <div class="help"><b>How to use:</b> Pick <u>Chat Mode</u> to type your message or select a feature in <u>Feature Mode</u>. Use <b>Copy Sample</b> to paste a proven prompt, then press <b>Run</b>.</div>
+      <div class="tabs">
+        <button class="btn btn-accent tab-chat">💬 Chat Mode</button>
+        <button class="btn btn-ghost tab-feature">📄 Feature Mode</button>
+        <select class="sample" style="margin-left:auto"><option value='Skin'>Skin</option>
+<option value='Style'>Style</option>
+<option value='Boost'>Boost</option></select>
+      </div>
+      <div class="h3">Sample prompt</div>
+      <textarea class="prompt" placeholder="A helpful example will appear here…"></textarea>
+      <div class="row">
+        <button class="btn btn-ghost copy">Copy Sample</button>
+      </div>
+      <div class="h3">Your chat message</div>
+      <textarea class="chat" placeholder="Type here to chat with GlamBot…"></textarea>
+      <div class="examples"><button class='ex' data-fill='Outfit: black + gold dinner'>• Outfit: black + gold dinner</button>
+<button class='ex' data-fill='Skincare for sensitive skin'>• Skincare for sensitive skin</button>
+<button class='ex' data-fill='Confidence script before stage'>• Confidence script before stage</button></div>
+      <div class="row">
+        <button class="btn btn-accent run">Run</button>
+        <button class="btn btn-ghost" onclick="this.closest('.demo').querySelectorAll('textarea').forEach(t=>t.value='')">Clear</button>
+      </div>
+      <div class="output"></div>
+      <div class="small" style="margin-top:6px">This is a simulated preview for buyers.</div>
+    </div>
+  </div>
+</section>
+<script>
+document.addEventListener('DOMContentLoaded', ()=> {
+  initDemo('demo-glambot', {
+    welcome: "Hi, I'm GlamBot! Try Chat or Feature Mode.",
+    example: "AM/PM skincare set for combination skin on budget.",
+    prompts: {"Skin": "AM/PM skincare set for combination skin on budget.", "Style": "Smart-casual outfit ideas with gold accessories.", "Boost": "Pre-shoot confidence routine (5 minutes)."},
+    samples: {"Skin": "Example Skin result...", "Style": "Example Style result...", "Boost": "Example Boost result..."},
+    reply: (q)=>"GlamBot preview: " + q + "\n• Option A\n• Option B\n• Option C"
+  });
+});
+</script>
+</div><div class="footer">© Tha Doll House</div></body></html>
