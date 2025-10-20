@@ -34,7 +34,7 @@ body >
     </div>
   </div>
   <div class="hero-card">
-    <img src="card_promopix.png" alt="PromoPix" style="width:100%;border-radius:14px" onerror="this.style.display='none'">
+    <img src="assets/img/cards/card_promopix.png" alt="PromoPix" style="width:100%;border-radius:14px" onerror="this.style.display='none'">
     <div id="demo-promopix" class="demo" data-mode="chat">
       <div class="help"><b>How to use:</b> Pick <u>Chat Mode</u> to type your message or select a feature in <u>Feature Mode</u>. Use <b>Copy Sample</b> to paste a proven prompt, then press <b>Run</b>.</div>
       <div class="tabs">
