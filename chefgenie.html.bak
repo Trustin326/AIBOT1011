@@ -16,53 +16,7 @@ body >
 </div></nav>
 <div class="container">
 
-<section class="hero">
-  <div class="hero-card gold">
-    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-      <div class="h1">Tha Doll House</div>
-      <span class="badge">$39</span>
-    </div>
-    <div class="h2" style="color:var(--accent)">ChefGenie</div>
-    <div class="lead">Turn Ingredients into Luxurious Dishes</div>
-    <ul class="features"><li>Recipe Generator</li>
-<li>Nutrition Analyzer</li>
-<li>Meal Planner</li>
-<li>Wine Pairing</li></ul>
-    <div class="hero-cta">
-      <button class="btn btn-gold" onclick="alert('Replace with your Stripe link for ChefGenie.')">Buy Now</button>
-      <a class="btn btn-accent" href="index.html#bots">Back</a>
-    </div>
-  </div>
-  <div class="hero-card">
-    <img src="assets/img/cards/card_chefgenie.png" alt="ChefGenie" style="width:100%;border-radius:14px" onerror="this.style.display='none'">
-    <div id="demo-chefgenie" class="demo" data-mode="chat">
-      <div class="help"><b>How to use:</b> Pick <u>Chat Mode</u> to type your message or select a feature in <u>Feature Mode</u>. Use <b>Copy Sample</b> to paste a proven prompt, then press <b>Run</b>.</div>
-      <div class="tabs">
-        <button class="btn btn-accent tab-chat">💬 Chat Mode</button>
-        <button class="btn btn-ghost tab-feature">📄 Feature Mode</button>
-        <select class="sample" style="margin-left:auto"><option value='Recipe'>Recipe</option>
-<option value='Macros'>Macros</option>
-<option value='Shop'>Shop</option></select>
-      </div>
-      <div class="h3">Sample prompt</div>
-      <textarea class="prompt" placeholder="A helpful example will appear here…"></textarea>
-      <div class="row">
-        <button class="btn btn-ghost copy">Copy Sample</button>
-      </div>
-      <div class="h3">Your chat message</div>
-      <textarea class="chat" placeholder="Type here to chat with ChefGenie…"></textarea>
-      <div class="examples"><button class='ex' data-fill='Vegetarian swap version'>• Vegetarian swap version</button>
-<button class='ex' data-fill='Macros for gluten-free swap'>• Macros for gluten-free swap</button>
-<button class='ex' data-fill='List for 6 people'>• List for 6 people</button></div>
-      <div class="row">
-        <button class="btn btn-accent run">Run</button>
-        <button class="btn btn-ghost" onclick="this.closest('.demo').querySelectorAll('textarea').forEach(t=>t.value='')">Clear</button>
-      </div>
-      <div class="output"></div>
-      <div class="small" style="margin-top:6px">This is a simulated preview for buyers.</div>
-    </div>
-  </div>
-</section>
+
 <script>
 document.addEventListener('DOMContentLoaded', ()=> {
   initDemo('demo-chefgenie', {
