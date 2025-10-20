@@ -1,208 +1,39 @@
-<!doctype html><html lang="en" ><head<!-- WebLLM runtime (client-side LLM) -->
-<script src="https://unpkg.com/@mlc-ai/web-llm/dist/web-llm.min.js"></script>
->
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AI Bot Suite • Tha Doll House</title>
-<link rel="stylesheet" href="style.css">
-<script defer src="main.js"></script>
-<style>:root{--accent:#0B7F86;}</style>
-</head><<script src="main.js"></script>
-body >
-<nav class="nav"><div class="nav-inner">
-  <div class="logo">Tha Doll House</div>
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="index.html#bots">Bots</a>
-  </div>
-</div></nav>
-<div class="container">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Tha DollHouse — AI Bots</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* FALLBACK styles in case style.css misses these */
+    .cards-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin:40px 0}
+    .cards-gallery a{display:block;position:relative;text-decoration:none}
+    .cards-gallery img{width:100%;height:auto;border-radius:14px;box-shadow:0 10px 24px rgba(0,0,0,.18);transition:transform .2s,box-shadow .2s}
+    .cards-gallery a:hover img{transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.22)}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    header h1{font-size:34px;margin:0 0 10px}
+    header p{opacity:.85;margin:0 0 18px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Tha DollHouse — AI Bot Collection</h1>
+      <p>Tap any pricing card to open a live demo page. Each bot is $39.</p>
+    </header>
 
-<section class="hero">
-  <div class="hero-card gold">
-    <div class="h1">Your Digital Dolls</div>
-    <div class="lead">Eight focused AI helpers — polished in teal, cream, black and gold to match your pricing cards.</div>
-    <div class="h3">Using the demos</div>
-    <ol class="lead" style="font-size:15px">
-      <li>Open a bot and pick <b>Chat Mode</b> (type your message) or <b>Feature Mode</b> (choose a feature).</li>
-      <li>Click <b>Copy Sample</b> to auto-fill a proven prompt.</li>
-      <li>Press <b>Run</b> to see a simulated result.</li>
-    </ol>
+    <!-- SINGLE gallery only -->
+    <section class="cards-gallery" data-cards-gallery>
+      <a href="bizbot.html"><img src="assets/img/cards/card_bizbot.png" alt="BizBot"></a>
+      <a href="sellerpro.html"><img src="assets/img/cards/card_sellerpro.png" alt="SellerPro"></a>
+      <a href="coachai.html"><img src="assets/img/cards/card_coachai.png" alt="CoachAI"></a>
+      <a href="designdiva.html"><img src="assets/img/cards/card_designdiva.png" alt="DesignDiva"></a>
+      <a href="glambot.html"><img src="assets/img/cards/card_glambot.png" alt="GlamBot"></a>
+      <a href="chefgenie.html"><img src="assets/img/cards/card_chefgenie.png" alt="ChefGenie"></a>
+      <a href="promopix.html"><img src="assets/img/cards/card_promopix.png" alt="PromoPix"></a>
+      <a href="writersx.html"><img src="assets/img/cards/card_writerx.png" alt="WriterSX"></a>
+    </section>
   </div>
-  <div class="hero-card">
-    <div class="h2">Price</div>
-    <p class="lead">Every bot is <span class="badge">$39</span>. We'll wire your Stripe links once you send them.</p>
-  </div>
-</section>
-<h2 id="bots" class="h2" style="margin:18px 0">Shop the Collection</h2>
-<div class="grid">
-<a class="card" href="bizbot.html" style="background:#fff">
-  <img src="assets/img/cards/bizbot.jpg?v=2" alt="BizBot" onerror="this.style.display='none'">
-  <div class="p">
-    <div class="h2" style="font-family:'Brush Script MT','Segoe Script',cursive;color:#126e74">BizBot</div>
-    <div class="lead">Turn Ideas Into Income</div>
-    <div class="hero-cta">
-      <span class="badge">$39</span>
-      <button class="btn btn-accent" style="background:#126e74;color:#fff" onclick="location.href='bizbot.html'">View Demo</button>
-    </div>
-  </div>
-</a>
-<a class="card" href="sellerpro.html" style="background:#fff">
-  <img src="assets/img/cards/sellerpro.jpg?v=2" alt="SellerPro" onerror="this.style.display='none'">
-  <div class="p">
-    <div class="h2" style="font-family:'Brush Script MT','Segoe Script',cursive;color:#0B7F86">SellerPro</div>
-    <div class="lead">Build $7 Products That Sell</div>
-    <div class="hero-cta">
-      <span class="badge">$39</span>
-      <button class="btn btn-accent" style="background:#0B7F86;color:#fff" onclick="location.href='sellerpro.html'">View Demo</button>
-    </div>
-  </div>
-</a>
-<a class="card" href="coachai.html" style="background:#fff">
-  <img src="assets/img/cards/coachai.jpg?v=2" alt="CoachAI" onerror="this.style.display='none'">
-  <div class="p">
-    <div class="h2" style="font-family:'Brush Script MT','Segoe Script',cursive;color:#0B7F86">CoachAI</div>
-    <div class="lead">Level Up Your Life and Focus</div>
-    <div class="hero-cta">
-      <span class="badge">$39</span>
-      <button class="btn btn-accent" style="background:#0B7F86;color:#fff" onclick="location.href='coachai.html'">View Demo</button>
-    </div>
-  </div>
-</a>
-<a class="card" href="writerx.html" style="background:#0b0b0b">
-  <img src="card_writerx.png" alt="WriterSX" onerror="this.style.display='none'">
-  <div class="p">
-    <div class="h2" style="font-family:'Brush Script MT','Segoe Script',cursive;color:#d4af37">WriterSX</div>
-    <div class="lead">Creates High-Quality Content</div>
-    <div class="hero-cta">
-      <span class="badge">$39</span>
-      <button class="btn btn-accent" style="background:#d4af37;color:#fff" onclick="location.href='writerx.html'">View Demo</button>
-    </div>
-  </div>
-</a>
-<a class="card" href="designdiva.html" style="background:#fff">
-  <img src="assets/img/cards/designdiva.jpg?v=2" alt="DesignDiva" onerror="this.style.display='none'">
-  <div class="p">
-    <div class="h2" style="font-family:'Brush Script MT','Segoe Script',cursive;color:#0B7F86">DesignDiva</div>
-    <div class="lead">Your AI Creative Director</div>
-    <div class="hero-cta">
-      <span class="badge">$39</span>
-      <button class="btn btn-accent" style="background:#0B7F86;color:#fff" onclick="location.href='designdiva.html'">View Demo</button>
-    </div>
-  </div>
-</a>
-<a class="card" href="chefgenie.html" style="background:#fff">
-  <img src="assets/img/cards/chefgenie.jpg?v=2" alt="ChefGenie" onerror="this.style.display='none'">
-  <div class="p">
-    <div class="h2" style="font-family:'Brush Script MT','Segoe Script',cursive;color:#0B7F86">ChefGenie</div>
-    <div class="lead">Turn Ingredients into Luxurious Dishes</div>
-    <div class="hero-cta">
-      <span class="badge">$39</span>
-      <button class="btn btn-accent" style="background:#0B7F86;color:#fff" onclick="location.href='chefgenie.html'">View Demo</button>
-    </div>
-  </div>
-</a>
-<a class="card" href="promopix.html" style="background:#fff">
-  <img src="assets/img/cards/promopix.jpg?v=2" alt="PromoPix" onerror="this.style.display='none'">
-  <div class="p">
-    <div class="h2" style="font-family:'Brush Script MT','Segoe Script',cursive;color:#2B9CA3">PromoPix</div>
-    <div class="lead">Social Media on Autopilot</div>
-    <div class="hero-cta">
-      <span class="badge">$39</span>
-      <button class="btn btn-accent" style="background:#2B9CA3;color:#fff" onclick="location.href='promopix.html'">View Demo</button>
-    </div>
-  </div>
-</a>
-<a class="card" href="glambot.html" style="background:#0b0b0b">
-  <img src="assets/img/cards/glambot.jpg?v=2" alt="GlamBot" onerror="this.style.display='none'">
-  <div class="p">
-    <div class="h2" style="font-family:'Brush Script MT','Segoe Script',cursive;color:#d4af37">GlamBot</div>
-    <div class="lead">Style, Beauty & Confidence</div>
-    <div class="hero-cta">
-      <span class="badge">$39</span>
-      <button class="btn btn-accent" style="background:#d4af37;color:#fff" onclick="location.href='glambot.html'">View Demo</button>
-    </div>
-  </div>
-</a></div>
-  <!-- =====================
-       BOT PRICING SECTION
-  ===================== -->
-  <section id="pricing" style="text-align:center; padding:40px;">
-    <h2 style="font-family:sans-serif; color:#0a3b3b;">Choose Your DollHouse AI Bot</h2>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; margin-top:30px;">
-
-      <a href="coachai.html" style="text-decoration:none;">
-        <img src="assets/img/cards/coachai.jpg?v=2" alt="CoachAI" style="width:100%; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
-      </a>
-
-      <a href="promopix.html" style="text-decoration:none;">
-        <img src="assets/img/cards/promopix.jpg?v=2" alt="PromoPix" style="width:100%; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
-      </a>
-
-      <a href="sellerpro.html" style="text-decoration:none;">
-        <img src="assets/img/cards/sellerpro.jpg?v=2" alt="SellerPro" style="width:100%; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
-      </a>
-
-      <a href="designdiva.html" style="text-decoration:none;">
-        <img src="assets/img/cards/designdiva.jpg?v=2" alt="DesignDiva" style="width:100%; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
-      </a>
-
-      <a href="glambot.html" style="text-decoration:none;">
-        <img src="assets/img/cards/glambot.jpg?v=2" alt="GlamBot" style="width:100%; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
-      </a>
-
-      <a href="chefgenie.html" style="text-decoration:none;">
-        <img src="assets/img/cards/chefgenie.jpg?v=2" alt="ChefGenie" style="width:100%; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
-      </a>
-
-      <a href="writersx.html" style="text-decoration:none;">
-        <img src="card_writerx.png" alt="WriterSX" style="width:100%; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
-      </a>
-
-      <a href="bizbot.html" style="text-decoration:none;">
-        <img src="assets/img/cards/bizbot.jpg?v=2" alt="BizBot" style="width:100%; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
-      </a>
-
-    </div>
-  </section>
-  <!-- =====================
-       BOT PRICING SECTION WITH STRIPE LINKS
-  ===================== -->
-  <section id="pricing" style="text-align:center; padding:40px; background:linear-gradient(180deg,#f9fafa,#ffffff);">
-    <h2 style="font-family:sans-serif; color:#0a3b3b; font-size:2em;">Choose Your DollHouse AI Bot</h2>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:30px; margin-top:30px;">
-      <div>
-        <a href="coachai.html"><img src="assets/img/cards/coachai.jpg?v=2" alt="CoachAI" style="width:100%; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.1);"></a>
-        <a href="https://buy.stripe.com/cNi28r0Dy1eH3sU7j32880m" target="_blank" style="display:inline-block;margin-top:10px;padding:10px 20px;background:#0ab3b3;color:#fff;text-decoration:none;border-radius:6px;font-weight:bold;">Buy $39</a>
-      </div>
-      <div>
-        <a href="promopix.html"><img src="assets/img/cards/promopix.jpg?v=2" alt="PromoPix" style="width:100%; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.1);"></a>
-        <a href="https://buy.stripe.com/4gM00jfys5uX9Ri5aV2880n" target="_blank" style="display:inline-block;margin-top:10px;padding:10px 20px;background:#ff0077;color:#fff;text-decoration:none;border-radius:6px;font-weight:bold;">Buy $39</a>
-      </div>
-      <div>
-        <a href="sellerpro.html"><img src="assets/img/cards/sellerpro.jpg?v=2" alt="SellerPro" style="width:100%; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.1);"></a>
-        <a href="https://buy.stripe.com/cNicN50Dyg9B0gIavf2880o" target="_blank" style="display:inline-block;margin-top:10px;padding:10px 20px;background:#222;color:#fff;text-decoration:none;border-radius:6px;font-weight:bold;">Buy $39</a>
-      </div>
-      <div>
-        <a href="designdiva.html"><img src="assets/img/cards/designdiva.jpg?v=2" alt="DesignDiva" style="width:100%; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.1);"></a>
-        <a href="https://buy.stripe.com/7sYbJ12LGe1tgfG1YJ2880p" target="_blank" style="display:inline-block;margin-top:10px;padding:10px 20px;background:#11bfa9;color:#fff;text-decoration:none;border-radius:6px;font-weight:bold;">Buy $39</a>
-      </div>
-      <div>
-        <a href="glambot.html"><img src="assets/img/cards/glambot.jpg?v=2" alt="GlamBot" style="width:100%; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.1);"></a>
-        <a href="https://buy.stripe.com/8x26oH5XSaPh9Ri8n72880q" target="_blank" style="display:inline-block;margin-top:10px;padding:10px 20px;background:#d3a2ff;color:#fff;text-decoration:none;border-radius:6px;font-weight:bold;">Buy $39</a>
-      </div>
-      <div>
-        <a href="chefgenie.html"><img src="assets/img/cards/chefgenie.jpg?v=2" alt="ChefGenie" style="width:100%; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.1);"></a>
-        <a href="https://buy.stripe.com/14A00j71WbTl2oQ46R2880r" target="_blank" style="display:inline-block;margin-top:10px;padding:10px 20px;background:#f7b85b;color:#fff;text-decoration:none;border-radius:6px;font-weight:bold;">Buy $39</a>
-      </div>
-      <div>
-        <a href="writersx.html"><img src="card_writerx.png" alt="WriterSX" style="width:100%; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.1);"></a>
-        <a href="https://buy.stripe.com/14A9AT4TObTlgfGfPz2880s" target="_blank" style="display:inline-block;margin-top:10px;padding:10px 20px;background:#000;color:#fff;text-decoration:none;border-radius:6px;font-weight:bold;">Buy $39</a>
-      </div>
-      <div>
-        <a href="bizbot.html"><img src="assets/img/cards/bizbot.jpg?v=2" alt="BizBot" style="width:100%; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.1);"></a>
-        <a href="https://buy.stripe.com/14A7sL860g9B4wYeLv2880t" target="_blank" style="display:inline-block;margin-top:10px;padding:10px 20px;background:#009f8a;color:#fff;text-decoration:none;border-radius:6px;font-weight:bold;">Buy $39</a>
-      </div>
-    </div>
-  </section>
-</div><div class="footer">© Tha Doll House</div></body></html>
-<script src="_stripe_links.js"></script>
+</body>
+</html>
