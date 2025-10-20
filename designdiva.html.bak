@@ -20,6 +20,17 @@
     </div>
   </section>
   <!-- Auto-inserted hero for designdiva -->
+  <section class="hero-wrap" data-hero-for="designdiva" style="--accent:#b9922d">
+    <img class="hero-card" src="assets/img/cards/card_designdiva.png" alt="designdiva pricing card"/>
+    <div class="hero-copy">
+      <h1 style="color:var(--accent)">DesignDiva</h1>
+      <p>Templates, brand palettes, logo sketches & pin generator.</p>
+      <div class="hero-cta">
+        <a class="demo-btn" data-bot="DesignDiva" href="#demo">Try Demo</a>
+        <a class="buy-btn"  data-bot="DesignDiva" href="#">Buy $39</a>
+      </div>
+    </div>
+  </section>
 <nav class="nav"><div class="nav-inner">
   <div class="logo">Tha Doll House</div>
   <div class="nav-links">
@@ -29,6 +40,53 @@
 </div></nav>
 <div class="container">
 
+<section class="hero">
+  <div class="hero-card gold">
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      <div class="h1">Tha Doll House</div>
+      <span class="badge">$39</span>
+    </div>
+    <div class="h2" style="color:var(--accent)">DesignDiva</div>
+    <div class="lead">Your AI Creative Director</div>
+    <ul class="features"><li>Template Builder</li>
+<li>Brand Palette Creator</li>
+<li>Logo Sketcher</li>
+<li>Pin Generator</li></ul>
+    <div class="hero-cta">
+      <button class="btn btn-gold" onclick="alert('Replace with your Stripe link for DesignDiva.')">Buy Now</button>
+      <a class="btn btn-accent" href="index.html#bots">Back</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <img src="card_designdiva.png" alt="DesignDiva" style="width:100%;border-radius:14px" onerror="this.style.display='none'">
+    <div id="demo-designdiva" class="demo" data-mode="chat">
+      <div class="help"><b>How to use:</b> Pick <u>Chat Mode</u> to type your message or select a feature in <u>Feature Mode</u>. Use <b>Copy Sample</b> to paste a proven prompt, then press <b>Run</b>.</div>
+      <div class="tabs">
+        <button class="btn btn-accent tab-chat">💬 Chat Mode</button>
+        <button class="btn btn-ghost tab-feature">📄 Feature Mode</button>
+        <select class="sample" style="margin-left:auto"><option value='Palette'>Palette</option>
+<option value='Carousel'>Carousel</option>
+<option value='Logo'>Logo</option></select>
+      </div>
+      <div class="h3">Sample prompt</div>
+      <textarea class="prompt" placeholder="A helpful example will appear here…"></textarea>
+      <div class="row">
+        <button class="btn btn-ghost copy">Copy Sample</button>
+      </div>
+      <div class="h3">Your chat message</div>
+      <textarea class="chat" placeholder="Type here to chat with DesignDiva…"></textarea>
+      <div class="examples"><button class='ex' data-fill='Palette for 'Zen Studio''>• Palette for 'Zen Studio'</button>
+<button class='ex' data-fill='Carousel for before/after spa'>• Carousel for before/after spa</button>
+<button class='ex' data-fill='3 logo ideas for 'Aura''>• 3 logo ideas for 'Aura'</button></div>
+      <div class="row">
+        <button class="btn btn-accent run">Run</button>
+        <button class="btn btn-ghost" onclick="this.closest('.demo').querySelectorAll('textarea').forEach(t=>t.value='')">Clear</button>
+      </div>
+      <div class="output"></div>
+      <div class="small" style="margin-top:6px">This is a simulated preview for buyers.</div>
+    </div>
+  </div>
+</section>
 <script>
 document.addEventListener('DOMContentLoaded', ()=> {
   initDemo('demo-designdiva', {
