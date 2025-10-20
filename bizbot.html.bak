@@ -8,17 +8,7 @@
 </head>
 <body >
   <!-- AUTO hero -->
-  <section class="hero" data-hero-for="BizBot">
-    <div class="img-wrap"><img src="assets/img/cards/card_bizbot.png" alt="BizBot card"></div>
-    <div class="copy">
-      <h1>BizBot</h1>
-      <p>Generates product ideas, offers, scripts, funnels & ROI estimator.</p>
-      <div class="cta">
-        <a class="btn demo demo-btn" data-bot="BizBot" href="#demo">VIEW DEMO</a>
-        <a class="btn buy buy-btn"  data-bot="BizBot" href="#">Buy $39</a>
-      </div>
-    </div>
-  </section>
+  
   <!-- Auto-inserted hero for bizbot -->
 <nav class="nav"><div class="nav-inner">
   <div class="logo">Tha Doll House</div>
