@@ -521,6 +521,396 @@ const BOT_CARDS = {
 const OWNER_LOGIN = { email:"owner@thadollhouse.ai", pass:"DollhouseOwner39!" };
 const BUYER_LOGIN = { email:"buyer@test.com", pass:"Dollhouse39" };
 
+/* ============================
+   FULL FEATURE SYSTEM
+   Owner sees ALL features.
+   Buyers see limited features.
+============================ */
+const BOTS = [
+  {
+    slug:"coachai", name:"CoachAI", accent:"#0ab3b3",
+    tagline:"Mindset coaching, affirmations, goals, habit-building.",
+    coreFeatures:[
+      {name:"30-Day Motivation Plan", desc:"Build discipline + momentum in 30 days.", samples:[
+        "Create a 30-day motivation plan for a new entrepreneur.",
+        "Make a confidence challenge for entrepreneurs.",
+        "Write a daily discipline routine with affirmations."
+      ]},
+      {name:"Daily Affirmations Generator", desc:"Money mindset + confidence prompts.", samples:[
+        "Affirmations for confidence + money mindset.",
+        "Affirmations for productivity + focus.",
+        "Affirmations to overcome fear of selling."
+      ]},
+      {name:"Mini Coaching Script", desc:"Fast coaching scripts to boost results.", samples:[
+        "Give a 60-second pep talk for procrastination.",
+        "Create a quick confidence script before posting.",
+        "Coach someone through fear of rejection."
+      ]}
+    ],
+    ownerOnlyFeatures:[
+      {name:"Personalized Success Roadmap", desc:"Owner-only deep roadmap builder.", samples:[
+        "Create a 90-day success roadmap with weekly milestones.",
+        "Build a 12-week transformation plan for sales confidence.",
+        "Make a mindset + actions plan for $5k/month goal."
+      ]},
+      {name:"Habit Tracker Planner", desc:"Printable habit + routine schedule.", samples:[
+        "Create a habit tracker schedule for 30 days.",
+        "Build a weekly habit plan for productivity.",
+        "Give me a daily planner structure for discipline."
+      ]},
+      {name:"Client Coaching Scripts", desc:"Owner-only coaching scripts for clients.", samples:[
+        "Write 5 coaching messages for a client who quit.",
+        "Write a script for a client who struggles with consistency.",
+        "Create a coaching message for someone stuck in fear."
+      ]}
+    ]
+  },
+
+  {
+    slug:"promopix", name:"PromoPix", accent:"#ff2d8f",
+    tagline:"Content calendar, hooks, captions, hashtags, Pinterest posts.",
+    coreFeatures:[
+      {name:"30-Day Social Calendar", desc:"Done-for-you posting calendar.", samples:[
+        "Create a 30-day content calendar for AI bots.",
+        "Build a calendar for a digital product seller.",
+        "Create a TikTok calendar for faceless videos."
+      ]},
+      {name:"Viral Hooks + Captions", desc:"Scroll-stopping hooks fast.", samples:[
+        "Write 10 hooks about making money from home.",
+        "Give 10 captions for Pinterest marketing.",
+        "Write 10 hooks for a $39 AI tool."
+      ]},
+      {name:"Hashtag Packs", desc:"Targeted hashtag bundles.", samples:[
+        "Make hashtags for business motivation posts.",
+        "Make hashtags for home income + side hustle.",
+        "Make hashtags for AI business tools."
+      ]}
+    ],
+    ownerOnlyFeatures:[
+      {name:"Pinterest Pin Generator Pack", desc:"Owner-only pin ideas + layouts.", samples:[
+        "Give me 20 Pinterest pin titles for selling bots.",
+        "Create 15 pin designs for digital products.",
+        "Make a pin campaign theme for 30 days."
+      ]},
+      {name:"Affiliate Promo Scripts", desc:"Owner-only scripts for affiliates.", samples:[
+        "Write 5 affiliate captions promoting this site.",
+        "Write 5 TikTok scripts for affiliates to sell bots.",
+        "Write 5 email promo scripts for affiliates."
+      ]},
+      {name:"Full Launch Campaign", desc:"Owner-only 7-day launch campaign.", samples:[
+        "Build a 7-day launch campaign schedule.",
+        "Create a 10-day promo calendar with hooks.",
+        "Make a full launch plan with daily posts."
+      ]}
+    ]
+  },
+
+  {
+    slug:"sellerpro", name:"SellerPro", accent:"#12bfa9",
+    tagline:"Offer creation, pricing, sales pages, funnel scripts.",
+    coreFeatures:[
+      {name:"Digital Offer Builder", desc:"Creates offers that sell.", samples:[
+        "Build me a $39 digital offer with bonuses.",
+        "Create a $7 product funnel ladder.",
+        "Create a 3-tier pricing offer for a SaaS."
+      ]},
+      {name:"Sales Page Sections", desc:"Writes your sales page structure.", samples:[
+        "Write a luxury-style sales page structure.",
+        "Write an offer page for busy moms.",
+        "Write a landing page for creators."
+      ]},
+      {name:"Email Funnel Sequence", desc:"Write email series fast.", samples:[
+        "Write a 5-day warmup email sequence.",
+        "Write a 7-day conversion series.",
+        "Write a reactivation sequence for inactive leads."
+      ]}
+    ],
+    ownerOnlyFeatures:[
+      {name:"High-Ticket Upsell Builder", desc:"Owner-only premium upsells.", samples:[
+        "Create a $499 upsell offer.",
+        "Write a high-ticket coaching offer pitch.",
+        "Create a VIP version of my product."
+      ]},
+      {name:"Sales Script Vault", desc:"Owner-only call & DM scripts.", samples:[
+        "Write a DM script for closing a sale.",
+        "Write a call script to close a $39 tool.",
+        "Write a script for handling objections."
+      ]},
+      {name:"Product Bundle Generator", desc:"Owner-only bundle structures.", samples:[
+        "Create 3 bundles for my AI bot collection.",
+        "Make a bundle offer ladder for digital products.",
+        "Create a holiday bundle offer plan."
+      ]}
+    ]
+  },
+
+  {
+    slug:"bizbot", name:"BizBot", accent:"#009f8a",
+    tagline:"Business planning, offers, scripts, ROI estimates.",
+    coreFeatures:[
+      {name:"Business Plan Starter", desc:"Build a quick business plan.", samples:[
+        "Make a simple business plan for AI bot sales.",
+        "Create a plan for a Pinterest marketing agency.",
+        "Create a plan for a digital product store."
+      ]},
+      {name:"Offer + Script Builder", desc:"Write pitches & scripts.", samples:[
+        "Write a pitch script for selling a $39 tool.",
+        "Write a DM script for clients.",
+        "Write a call script for closing."
+      ]},
+      {name:"ROI Estimator", desc:"Calculate earnings goals.", samples:[
+        "Estimate ROI if I sell 5 bots a day.",
+        "Estimate monthly revenue at $39/day.",
+        "Estimate profit if 100 people buy monthly."
+      ]}
+    ],
+    ownerOnlyFeatures:[
+      {name:"Full Business Scaling Roadmap", desc:"Owner-only scaling strategy.", samples:[
+        "Create a scaling plan to hit 10k/month.",
+        "Build a business roadmap for recurring revenue.",
+        "Create a full 6-month scale plan."
+      ]},
+      {name:"Investor Pitch Builder", desc:"Owner-only pitch deck text.", samples:[
+        "Write an investor pitch summary.",
+        "Create a pitch deck outline for this SaaS.",
+        "Write a problem/solution pitch for my bot store."
+      ]},
+      {name:"Team SOP Generator", desc:"Owner-only business operations SOPs.", samples:[
+        "Create a customer support SOP.",
+        "Write an onboarding SOP for assistants.",
+        "Create an SOP for content posting."
+      ]}
+    ]
+  }
+];
+
+/* ============================
+   STATE
+============================ */
+const state = {
+  user: JSON.parse(localStorage.getItem("TDH_USER")||"null"),
+  apiKey: localStorage.getItem("TDH_API_KEY")||"",
+  liveAI: localStorage.getItem("TDH_LIVE_AI")==="1",
+  affiliate: localStorage.getItem("TDH_AFF")||"",
+  clicks: parseInt(localStorage.getItem("TDH_CLICKS")||"0",10),
+  sales: parseFloat(localStorage.getItem("TDH_SALES")||"0")
+};
+
+const $ = sel => document.querySelector(sel);
+
+/* ============================
+   LOGIN STATUS
+============================ */
+function setStatus(){
+  if(!state.user){
+    $("#statusText").textContent="Not logged in";
+    return;
+  }
+  $("#statusText").textContent = state.user.role==="owner"
+    ? "Logged in as OWNER (All Features Unlocked)"
+    : "Logged in as Buyer (Standard Access)";
+}
+
+function openModal(title, html){
+  $("#modalTitle").textContent = title;
+  $("#modalContent").innerHTML = html;
+  $("#modalOverlay").style.display = "block";
+}
+function closeModal(){
+  $("#modalOverlay").style.display = "none";
+}
+$("#closeModal").onclick = closeModal;
+
+/* ============================
+   GALLERY BUILD
+============================ */
+function buildGallery(){
+  const g = $("#gallery");
+  g.innerHTML="";
+  BOTS.forEach(bot=>{
+    const div=document.createElement("div");
+    div.className="card";
+    div.innerHTML=`
+      <img src="${BOT_CARDS[bot.slug] || ""}" alt="${bot.name}">
+      <div class="cardLabel">
+        <b>${bot.name}</b>
+        <span>$39 • Tap to Demo</span>
+      </div>
+    `;
+    div.onclick=()=>openBot(bot.slug);
+    g.appendChild(div);
+  });
+}
+
+/* ============================
+   BOT OPEN: OWNER FEATURES + BUYER FEATURES
+============================ */
+function openBot(slug){
+  const bot = BOTS.find(b=>b.slug===slug);
+  if(!bot) return;
+
+  $("#appShell").style.display="block";
+  $("#gallery").parentElement.style.display="none";
+  $("#accentDot").style.background=bot.accent;
+  $("#botTitle").textContent=bot.name;
+  $("#featureHeading").textContent=bot.name + " — Full Demo";
+  $("#featureDescription").textContent=bot.tagline;
+
+  $("#heroCard").src = BOT_CARDS[bot.slug] || "";
+  $("#buyBtn").href = STRIPE_LINKS[bot.slug] || "#";
+
+  // Build feature list based on role
+  const isOwner = state.user && state.user.role==="owner";
+  const features = isOwner
+    ? [...bot.coreFeatures, ...bot.ownerOnlyFeatures]
+    : [...bot.coreFeatures];
+
+  const featureSelect = $("#featureSelect");
+  featureSelect.innerHTML="";
+  features.forEach((f,i)=>{
+    const opt=document.createElement("option");
+    opt.value=String(i);
+    opt.textContent= isOwner && i >= bot.coreFeatures.length ? "⭐ OWNER: " + f.name : f.name;
+    featureSelect.appendChild(opt);
+  });
+
+  function rebuildSamples(){
+    const idx=parseInt(featureSelect.value,10);
+    const feat=features[idx];
+    $("#sampleSelect").innerHTML="";
+    feat.samples.forEach(s=>{
+      const opt=document.createElement("option");
+      opt.value=s;
+      opt.textContent=s.slice(0,90)+(s.length>90?"...":"");
+      $("#sampleSelect").appendChild(opt);
+    });
+    $("#userInput").value=feat.samples[0];
+    $("#outputBox").textContent="Your results will appear here…";
+  }
+
+  featureSelect.onchange=rebuildSamples;
+  rebuildSamples();
+
+  $("#copySample").onclick=()=>{
+    const txt=$("#sampleSelect").value;
+    navigator.clipboard.writeText(txt);
+    $("#userInput").value = txt;
+  };
+
+  $("#runDemo").onclick=()=>{
+    if(!state.user){
+      $("#outputBox").textContent="Please login first to run demos.";
+      return;
+    }
+    const idx=parseInt(featureSelect.value,10);
+    const feat=features[idx];
+    const prompt=$("#userInput").value.trim();
+    $("#outputBox").textContent =
+      `✅ ${bot.name} — ${feat.name}\n\nPrompt:\n"${prompt}"\n\nOUTPUT:\n(This is where Live AI output or premium bot results appear.)`;
+  };
+
+  $("#backHome").onclick=()=>{
+    $("#appShell").style.display="none";
+    $("#gallery").parentElement.style.display="block";
+    location.hash="";
+  };
+
+  location.hash=slug;
+}
+
+/* ============================
+   LOGIN BUTTON
+============================ */
+$("#openLogin").onclick=()=>{
+  openModal("Login", `
+    <div class="modalGrid">
+      <div class="panel">
+        <h3>Owner Login (FULL ACCESS)</h3>
+        <div style="margin-top:10px"><input id="loginEmail" value="${OWNER_LOGIN.email}"></div>
+        <div style="margin-top:10px"><input id="loginPass" type="password" value="${OWNER_LOGIN.pass}"></div>
+        <div class="row" style="margin-top:10px">
+          <button class="btn btnGold" id="doLogin">Login Owner</button>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Buyer Login</h3>
+        <div style="margin-top:10px"><input id="buyerEmail" value="${BUYER_LOGIN.email}"></div>
+        <div style="margin-top:10px"><input id="buyerPass" type="password" value="${BUYER_LOGIN.pass}"></div>
+        <div class="row" style="margin-top:10px">
+          <button class="btn" id="buyerLogin">Login Buyer</button>
+        </div>
+      </div>
+    </div>
+  `);
+
+  setTimeout(()=>{
+    document.getElementById("doLogin").onclick=()=>{
+      const email=document.getElementById("loginEmail").value.trim();
+      const pass=document.getElementById("loginPass").value.trim();
+      if(email===OWNER_LOGIN.email && pass===OWNER_LOGIN.pass){
+        state.user={email, role:"owner"};
+        localStorage.setItem("TDH_USER", JSON.stringify(state.user));
+        setStatus();
+        closeModal();
+        alert("✅ Owner access unlocked! All bot features are now visible.");
+      } else alert("Wrong owner login.");
+    };
+
+    document.getElementById("buyerLogin").onclick=()=>{
+      const email=document.getElementById("buyerEmail").value.trim();
+      const pass=document.getElementById("buyerPass").value.trim();
+      if(email===BUYER_LOGIN.email && pass===BUYER_LOGIN.pass){
+        state.user={email, role:"buyer"};
+        localStorage.setItem("TDH_USER", JSON.stringify(state.user));
+        setStatus();
+        closeModal();
+        alert("✅ Buyer logged in.");
+      } else alert("Wrong buyer login.");
+    };
+  },60);
+};
+
+/* ============================
+   BOOT
+============================ */
+setStatus();
+buildGallery();
+if(location.hash){
+  const slug=location.hash.replace("#","");
+  if(BOTS.some(b=>b.slug===slug)){
+    openBot(slug);
+  }
+}
+</script>
+
+/* ============================
+   CONFIG (EDIT HERE)
+============================ */
+const STRIPE_LINKS = {
+  coachai:   "https://buy.stripe.com/cNi28r0Dy1eH3sU7j32880m",
+  promopix:  "https://buy.stripe.com/4gM00jfys5uX9Ri5aV2880n",
+  sellerpro: "https://buy.stripe.com/cNicN50Dyg9B0gIavf2880o",
+  designdiva:"https://buy.stripe.com/7sYbJ12LGe1tgfG1YJ2880p",
+  glambot:   "https://buy.stripe.com/8x26oH5XSaPh9Ri8n72880q",
+  chefgenie: "https://buy.stripe.com/14A00j71WbTl2oQ46R2880r",
+  writersx:  "https://buy.stripe.com/14A9AT4TObTlgfGfPz2880s",
+  bizbot:    "https://buy.stripe.com/14A7sL860g9B4wYeLv2880t"
+};
+
+const BOT_CARDS = {
+  coachai:    "assets/img/cards/card_coachai.png",
+  promopix:   "assets/img/cards/card_promopix.png",
+  sellerpro:  "assets/img/cards/card_sellerpro.png",
+  designdiva: "assets/img/cards/card_designdiva.png",
+  glambot:    "assets/img/cards/card_glambot.png",
+  chefgenie:  "assets/img/cards/card_chefgenie.png",
+  writersx:   "assets/img/cards/card_writerx.png",
+  bizbot:     "assets/img/cards/card_bizbot.png"
+};
+
+const OWNER_LOGIN = { email:"owner@thadollhouse.ai", pass:"DollhouseOwner39!" };
+const BUYER_LOGIN = { email:"buyer@test.com", pass:"Dollhouse39" };
+
 const BOTS = [
   {
     slug:"coachai", name:"CoachAI", accent:"#0ab3b3",
