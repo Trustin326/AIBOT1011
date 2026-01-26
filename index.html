@@ -1,0 +1,1142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Tha DollHouse — AI Bot Collection</title>
+
+  <!-- Luxury fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Playfair+Display:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --teal:#0ab3b3;
+      --teal2:#11bfa9;
+      --black:#07070a;
+      --ink:#0b0b0f;
+      --cream:#f7f3ea;
+      --gold:#d7b46a;
+      --gold2:#ffd76a;
+      --panel: rgba(255,255,255,.08);
+      --panel2: rgba(255,255,255,.10);
+      --stroke: rgba(255,255,255,.16);
+      --text:#ffffff;
+      --muted: rgba(255,255,255,.78);
+      --shadow: 0 18px 70px rgba(0,0,0,.45);
+      --r: 20px;
+    }
+
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 30% 10%, rgba(10,179,179,.22), transparent 55%),
+                  radial-gradient(900px 600px at 80% 30%, rgba(215,180,106,.22), transparent 55%),
+                  linear-gradient(180deg, #050509, #0b0b12);
+      color:var(--text);
+      min-height:100vh;
+    }
+
+    .wrap{max-width:1200px;margin:0 auto;padding:24px}
+
+    header{
+      padding:26px 0 6px;
+      text-align:center;
+    }
+
+    .logoTitle{
+      font-family:Cinzel, serif;
+      font-weight:700;
+      letter-spacing:.05em;
+      font-size:78px;
+      margin:0 0 14px;
+      background: linear-gradient(90deg, var(--gold), #ffffff, var(--teal));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      text-shadow: 0 22px 80px rgba(0,0,0,.55);
+    }
+
+    .taglineBox{
+      max-width:1100px;
+      margin:0 auto;
+      padding:18px 22px;
+      border-radius:18px;
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+      border:1px solid var(--stroke);
+      box-shadow: var(--shadow);
+    }
+
+    .tagline{
+      font-family:"Playfair Display", serif;
+      font-size:24px;
+      line-height:1.9;
+      margin:0;
+      color:#fff;
+      text-align:center;
+    }
+
+    .pillRow{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:18px 0 0;
+    }
+
+    .pill{
+      font-size:13px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.06);
+      padding:7px 12px;
+      border-radius:999px;
+      color:rgba(255,255,255,.9);
+    }
+
+    .topBar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin-top:18px;
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.06);
+    }
+
+    .topBar .left, .topBar .right{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.08);
+      color:#fff;
+      padding:10px 14px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:600;
+      text-decoration:none;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.12)}
+
+    .btnGold{
+      background: linear-gradient(180deg, var(--gold2), var(--gold));
+      color:#111;
+      border:none;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+      gap:18px;
+      margin:22px 0 36px;
+    }
+
+    .card{
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      box-shadow: 0 18px 55px rgba(0,0,0,.25);
+      cursor:pointer;
+      transition: transform .18s ease, box-shadow .18s ease;
+      position:relative;
+    }
+    .card:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 22px 70px rgba(0,0,0,.35);
+    }
+
+    .card img{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+
+    .cardLabel{
+      position:absolute;
+      left:12px;
+      bottom:12px;
+      right:12px;
+      padding:10px 12px;
+      border-radius:14px;
+      background: rgba(0,0,0,.55);
+      border:1px solid rgba(255,255,255,.14);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+    }
+
+    .cardLabel b{
+      font-size:14px;
+      letter-spacing:.02em;
+    }
+    .cardLabel span{
+      font-size:12px;
+      opacity:.85;
+    }
+
+    /* App view */
+    .appShell{
+      display:none;
+      margin-top:18px;
+      border-radius:20px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      box-shadow: var(--shadow);
+    }
+
+    .appTop{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:14px 16px;
+      background: rgba(0,0,0,.35);
+      border-bottom:1px solid rgba(255,255,255,.12);
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .appTop .botName{
+      font-weight:800;
+      letter-spacing:.03em;
+      font-size:16px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .appTop .botName .dot{
+      width:12px;height:12px;border-radius:50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 4px rgba(10,179,179,.2);
+    }
+
+    .appBody{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:0;
+      min-height:480px;
+    }
+
+    .demoPane{
+      padding:18px;
+      border-right:1px solid rgba(255,255,255,.12);
+    }
+
+    .sidePane{
+      padding:18px;
+      background: rgba(0,0,0,.20);
+    }
+
+    .heroCard{
+      width:100%;
+      border-radius:16px;
+      box-shadow: 0 16px 50px rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.12);
+    }
+
+    .h2{
+      font-size:20px;
+      margin:14px 0 10px;
+      font-weight:800;
+      letter-spacing:.02em;
+    }
+
+    .muted{color:var(--muted); font-size:14px; line-height:1.6}
+
+    .featureLabel{
+      font-weight:800;
+      margin:16px 0 10px;
+      font-size:15px;
+      letter-spacing:.02em;
+      padding:10px 12px;
+      border-radius:14px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+    }
+
+    .controls{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-top:10px;
+    }
+
+    select, textarea, input{
+      width:100%;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.25);
+      color:#fff;
+      outline:none;
+      font-family: Inter, sans-serif;
+    }
+
+    textarea{min-height:92px; resize:vertical}
+
+    .actions{
+      display:flex;
+      gap:10px;
+      margin-top:10px;
+      flex-wrap:wrap;
+    }
+
+    .out{
+      margin-top:12px;
+      padding:14px;
+      border-radius:14px;
+      border:1px dashed rgba(255,255,255,.22);
+      background: rgba(0,0,0,.22);
+      min-height:120px;
+      white-space:pre-wrap;
+      line-height:1.55;
+    }
+
+    .notice{
+      display:none;
+      margin-top:12px;
+      padding:12px 14px;
+      border-radius:14px;
+      background: rgba(255,0,90,.16);
+      border:1px solid rgba(255,0,90,.22);
+      color:#fff;
+      font-weight:700;
+    }
+
+    .small{font-size:12px; opacity:.85}
+
+    /* Login + Dashboard modal */
+    .modalOverlay{
+      display:none;
+      position:fixed; inset:0;
+      background: rgba(0,0,0,.70);
+      z-index:1000;
+      padding:22px;
+    }
+    .modal{
+      max-width:860px;
+      margin:0 auto;
+      background: rgba(12,12,18,.92);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:22px;
+      padding:18px;
+      box-shadow: 0 22px 80px rgba(0,0,0,.55);
+    }
+    .modalHeader{
+      display:flex; justify-content:space-between; align-items:center; gap:10px;
+      padding-bottom:10px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+    }
+    .modalHeader b{font-size:16px}
+    .modalGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+
+    .panel{
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:18px;
+      padding:14px;
+      background: rgba(255,255,255,.05);
+    }
+
+    .panel h3{margin:0 0 10px; font-size:15px}
+    .row{display:flex; gap:10px; flex-wrap:wrap}
+
+    .dashGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      margin-top:12px;
+    }
+
+    .stat{
+      padding:12px;
+      border-radius:16px;
+      background: rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .stat b{font-size:18px}
+    .stat div{opacity:.85; font-size:12px}
+
+    @media (max-width: 980px){
+      .logoTitle{font-size:52px}
+      .tagline{font-size:18px}
+      .appBody{grid-template-columns:1fr}
+      .demoPane{border-right:none;border-bottom:1px solid rgba(255,255,255,.10)}
+      .modalGrid, .dashGrid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logoTitle">Tha DollHouse</div>
+
+      <div class="taglineBox">
+        <p class="tagline">
+          Welcome to Tha DollHouse AI Bot Collection — your exclusive suite of intelligent digital tools crafted to help you work smarter, automate faster, and earn from anywhere.
+          Each bot is designed to streamline your business, spark creativity, and open new income streams right from home — whether you’re building your brand, managing clients, or selling digital products.
+          <br><br>
+          ✨ Tap any pricing card to open a live demo page. Each bot is just <b>$39</b> — your gateway to effortless automation and home-based income growth.
+        </p>
+      </div>
+
+      <div class="pillRow">
+        <div class="pill">Teal • Cream • Black • Metallic Gold</div>
+        <div class="pill">8 Bots • $39 each • Live Demo Experience</div>
+        <div class="pill">Affiliate System • Owner Dashboard • Buyer Login</div>
+      </div>
+
+      <div class="topBar">
+        <div class="left">
+          <button class="btn btnGold" id="openLogin">Login</button>
+          <button class="btn" id="openDashboard">Dashboard</button>
+        </div>
+        <div class="right">
+          <button class="btn" id="openSettings">Live AI Settings</button>
+          <span class="small" id="statusText">Not logged in</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- SINGLE Gallery -->
+    <main>
+      <section class="grid" id="gallery"></section>
+    </main>
+
+    <!-- Bot App Shell -->
+    <section class="appShell" id="appShell">
+      <div class="appTop">
+        <div class="botName"><span class="dot" id="accentDot"></span> <span id="botTitle">Bot</span></div>
+        <div class="row">
+          <button class="btn" id="backHome">← Back to all bots</button>
+          <a class="btn btnGold" id="buyBtn" href="#" target="_blank">Buy $39</a>
+        </div>
+      </div>
+
+      <div class="appBody">
+        <div class="demoPane">
+          <div class="h2" id="featureHeading">Features</div>
+          <div class="muted" id="featureDescription"></div>
+
+          <div class="featureLabel">Choose a Feature</div>
+          <select id="featureSelect"></select>
+
+          <div class="featureLabel">Choose a Sample Option (3+)</div>
+          <select id="sampleSelect"></select>
+
+          <div class="featureLabel">Try it with Your Own Input</div>
+          <textarea id="userInput" placeholder="Type your custom request here..."></textarea>
+
+          <div class="actions">
+            <button class="btn btnGold" id="runDemo">Run Demo</button>
+            <button class="btn" id="copySample">Copy Sample</button>
+          </div>
+
+          <div class="out" id="outputBox">Your results will appear here…</div>
+          <div class="notice" id="upgradeNotice">Upgrade to unlock unlimited use.</div>
+        </div>
+
+        <div class="sidePane">
+          <img class="heroCard" id="heroCard" src="" alt="Pricing card">
+          <div class="h2" style="margin-top:14px">Affiliate Link</div>
+          <div class="muted">Share and earn commission instantly.</div>
+          <div class="featureLabel">Your Referral Link</div>
+          <input id="refLink" readonly />
+          <div class="actions">
+            <button class="btn" id="copyRef">Copy Referral Link</button>
+          </div>
+
+          <div class="featureLabel">Affiliate Stats</div>
+          <div class="stat">
+            <b id="statClicks">0</b>
+            <div>Referral Clicks</div>
+          </div>
+          <div class="stat" style="margin-top:10px">
+            <b id="statSales">$0</b>
+            <div>Estimated Commissions</div>
+          </div>
+
+          <div class="featureLabel">Live AI</div>
+          <div class="muted">
+            If Live AI is enabled, demo answers can come from OpenAI.<br>
+            Otherwise, the bots use premium sample responses.
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- MODALS -->
+  <div class="modalOverlay" id="modalOverlay">
+    <div class="modal" id="modalBox">
+      <div class="modalHeader">
+        <b id="modalTitle">Modal</b>
+        <button class="btn" id="closeModal">Close</button>
+      </div>
+      <div id="modalContent" style="margin-top:12px"></div>
+    </div>
+  </div>
+
+<script>
+/* ============================
+   CONFIG (EDIT HERE)
+============================ */
+const STRIPE_LINKS = {
+  coachai:   "https://buy.stripe.com/cNi28r0Dy1eH3sU7j32880m",
+  promopix:  "https://buy.stripe.com/4gM00jfys5uX9Ri5aV2880n",
+  sellerpro: "https://buy.stripe.com/cNicN50Dyg9B0gIavf2880o",
+  designdiva:"https://buy.stripe.com/7sYbJ12LGe1tgfG1YJ2880p",
+  glambot:   "https://buy.stripe.com/8x26oH5XSaPh9Ri8n72880q",
+  chefgenie: "https://buy.stripe.com/14A00j71WbTl2oQ46R2880r",
+  writersx:  "https://buy.stripe.com/14A9AT4TObTlgfGfPz2880s",
+  bizbot:    "https://buy.stripe.com/14A7sL860g9B4wYeLv2880t"
+};
+
+const BOT_CARDS = {
+  coachai:    "assets/img/cards/card_coachai.png",
+  promopix:   "assets/img/cards/card_promopix.png",
+  sellerpro:  "assets/img/cards/card_sellerpro.png",
+  designdiva: "assets/img/cards/card_designdiva.png",
+  glambot:    "assets/img/cards/card_glambot.png",
+  chefgenie:  "assets/img/cards/card_chefgenie.png",
+  writersx:   "assets/img/cards/card_writerx.png",
+  bizbot:     "assets/img/cards/card_bizbot.png"
+};
+
+const OWNER_LOGIN = { email:"owner@thadollhouse.ai", pass:"DollhouseOwner39!" };
+const BUYER_LOGIN = { email:"buyer@test.com", pass:"Dollhouse39" };
+
+const BOTS = [
+  {
+    slug:"coachai", name:"CoachAI", accent:"#0ab3b3",
+    tagline:"Mindset coaching, affirmations, goals, habit-building.",
+    features:[
+      {name:"30-Day Motivation Plan", samples:[
+        "Create a 30-day motivation plan for a new entrepreneur.",
+        "Make a confidence challenge for entrepreneurs.",
+        "Write a daily discipline routine with affirmations."
+      ]},
+      {name:"Daily Affirmations Generator", samples:[
+        "Affirmations for confidence + money mindset.",
+        "Affirmations for productivity + focus.",
+        "Affirmations to overcome fear of selling."
+      ]},
+      {name:"Mini Coaching Script", samples:[
+        "Give a 60-second pep talk for procrastination.",
+        "Create a quick confidence script before posting.",
+        "Coach someone through fear of rejection."
+      ]}
+    ]
+  },
+  {
+    slug:"promopix", name:"PromoPix", accent:"#ff2d8f",
+    tagline:"Content calendar, hooks, captions, hashtags, Pinterest posts.",
+    features:[
+      {name:"30-Day Social Calendar", samples:[
+        "Create a 30-day content calendar for AI bots.",
+        "Build a calendar for a digital product seller.",
+        "Create a TikTok calendar for faceless videos."
+      ]},
+      {name:"Viral Caption + Hooks", samples:[
+        "Write 10 hooks about making money from home.",
+        "Give 10 captions for Pinterest marketing.",
+        "Write 10 hooks for a $39 AI tool."
+      ]},
+      {name:"Hashtag Pack", samples:[
+        "Make hashtags for business motivation posts.",
+        "Make hashtags for home income + side hustle.",
+        "Make hashtags for AI business tools."
+      ]}
+    ]
+  },
+  {
+    slug:"sellerpro", name:"SellerPro", accent:"#12bfa9",
+    tagline:"Offer creation, pricing, sales pages, funnel scripts.",
+    features:[
+      {name:"Digital Offer Builder", samples:[
+        "Build me a $39 digital offer with bonuses.",
+        "Create a $7 product funnel ladder.",
+        "Create a 3-tier pricing offer for a SaaS."
+      ]},
+      {name:"Sales Page Sections", samples:[
+        "Write a luxury-style sales page structure.",
+        "Write an offer page for busy moms.",
+        "Write a landing page for creators."
+      ]},
+      {name:"Email Funnel Sequence", samples:[
+        "Write a 5-day warmup email sequence.",
+        "Write a 7-day conversion series.",
+        "Write a reactivation sequence for inactive leads."
+      ]}
+    ]
+  },
+  {
+    slug:"designdiva", name:"DesignDiva", accent:"#d7b46a",
+    tagline:"Brand palettes, creative ideas, template concepts.",
+    features:[
+      {name:"Luxury Brand Palette", samples:[
+        "Create a teal/cream/gold palette for a luxury bot.",
+        "Create a bold black/gold palette for a premium brand.",
+        "Create a feminine luxury palette for creators."
+      ]},
+      {name:"Pinterest Pin Concepts", samples:[
+        "Give 10 Pinterest pin ideas for home income.",
+        "Create a pin pack theme for AI bots.",
+        "Give 10 carousel topics for Instagram."
+      ]},
+      {name:"Mockup + Template Ideas", samples:[
+        "Suggest templates for a digital shop kit.",
+        "Suggest mockups for a SaaS kit bundle.",
+        "Suggest a product cover layout."
+      ]}
+    ]
+  },
+  {
+    slug:"glambot", name:"GlamBot", accent:"#cda6ff",
+    tagline:"Beauty routines, fashion styling, brand glow-up.",
+    features:[
+      {name:"Glow-Up Routine", samples:[
+        "Create a weekly glow-up routine for busy women.",
+        "Create a 7-day skincare routine plan.",
+        "Create a luxury self-care plan."
+      ]},
+      {name:"Outfit Stylist", samples:[
+        "Style me 5 outfits for a business woman brand shoot.",
+        "Give outfits for a luxury office vibe.",
+        "Give 5 date-night elegant looks."
+      ]},
+      {name:"Luxury Brand Aesthetic", samples:[
+        "Give a glam aesthetic guide for my brand.",
+        "Give a luxury content theme with colors + mood.",
+        "Write brand style rules for a premium look."
+      ]}
+    ]
+  },
+  {
+    slug:"chefgenie", name:"ChefGenie", accent:"#f7b85b",
+    tagline:"Luxury recipes, meal planning, nutrition breakdown.",
+    features:[
+      {name:"Luxury Recipe Generator", samples:[
+        "Create a luxury dinner using salmon + herbs.",
+        "Create a high-protein meal with chicken + quinoa.",
+        "Create a romantic dinner menu for two."
+      ]},
+      {name:"Meal Plan Builder", samples:[
+        "Build a 7-day meal plan for fat loss.",
+        "Create a meal plan for high-protein muscle gain.",
+        "Make a family-friendly weekly meal plan."
+      ]},
+      {name:"Nutrition Breakdown", samples:[
+        "Calculate calories/macros for a salmon bowl meal.",
+        "Give nutrition estimate for chicken salad wrap.",
+        "Break down nutrition for a smoothie meal."
+      ]}
+    ]
+  },
+  {
+    slug:"writersx", name:"WriterSX", accent:"#000000",
+    tagline:"Articles, scripts, story outlines, brand writing.",
+    features:[
+      {name:"Long-form Blog Post", samples:[
+        "Write a blog post about AI side hustles.",
+        "Write a blog post about selling digital products.",
+        "Write a blog post about Pinterest traffic."
+      ]},
+      {name:"Story Outline", samples:[
+        "Outline a short story about success and hustle.",
+        "Outline a romance story for a short ebook.",
+        "Outline a motivational story for creators."
+      ]},
+      {name:"Video Script", samples:[
+        "Write a TikTok script selling a $39 AI bot.",
+        "Write a YouTube script about income from home.",
+        "Write a reel script for luxury brand vibes."
+      ]}
+    ]
+  },
+  {
+    slug:"bizbot", name:"BizBot", accent:"#009f8a",
+    tagline:"Business planning, offers, scripts, ROI estimates.",
+    features:[
+      {name:"Business Plan Starter", samples:[
+        "Make a simple business plan for AI bot sales.",
+        "Create a plan for a Pinterest marketing agency.",
+        "Create a plan for a digital product store."
+      ]},
+      {name:"Offer + Script Builder", samples:[
+        "Write a pitch script for selling a $39 tool.",
+        "Write a DM script for clients.",
+        "Write a call script for closing."
+      ]},
+      {name:"ROI Estimator", samples:[
+        "Estimate ROI if I sell 5 bots a day.",
+        "Estimate monthly revenue at $39/day.",
+        "Estimate profit if 100 people buy monthly."
+      ]}
+    ]
+  }
+];
+
+/* ============================
+   STATE
+============================ */
+const state = {
+  user: JSON.parse(localStorage.getItem("TDH_USER")||"null"),
+  apiKey: localStorage.getItem("TDH_API_KEY")||"",
+  liveAI: localStorage.getItem("TDH_LIVE_AI")==="1",
+  affiliate: localStorage.getItem("TDH_AFF")||"",
+  clicks: parseInt(localStorage.getItem("TDH_CLICKS")||"0",10),
+  sales: parseFloat(localStorage.getItem("TDH_SALES")||"0")
+};
+
+/* ============================
+   AFFILIATE (cookie/ref handling)
+============================ */
+(function initAffiliate(){
+  const url = new URL(location.href);
+  const ref = url.searchParams.get("ref");
+  if(ref){
+    localStorage.setItem("TDH_AFF", ref);
+    state.affiliate = ref;
+  }
+  // count click if ref exists
+  if(state.affiliate){
+    state.clicks += 1;
+    localStorage.setItem("TDH_CLICKS", String(state.clicks));
+  }
+})();
+
+/* ============================
+   UI HELPERS
+============================ */
+const $ = sel => document.querySelector(sel);
+
+function openModal(title, html){
+  $("#modalTitle").textContent = title;
+  $("#modalContent").innerHTML = html;
+  $("#modalOverlay").style.display = "block";
+}
+function closeModal(){
+  $("#modalOverlay").style.display = "none";
+}
+$("#closeModal").onclick = closeModal;
+$("#modalOverlay").addEventListener("click",(e)=>{
+  if(e.target.id==="modalOverlay") closeModal();
+});
+
+function setStatus(){
+  if(!state.user){
+    $("#statusText").textContent="Not logged in";
+    return;
+  }
+  $("#statusText").textContent = state.user.role==="owner"
+    ? "Logged in as OWNER (Full Access)"
+    : "Logged in as Buyer";
+}
+
+function buildGallery(){
+  const g = $("#gallery");
+  g.innerHTML="";
+  BOTS.forEach(bot=>{
+    const div=document.createElement("div");
+    div.className="card";
+    div.innerHTML = `
+      <img src="${BOT_CARDS[bot.slug]}" alt="${bot.name}">
+      <div class="cardLabel">
+        <b>${bot.name}</b>
+        <span>$39 • Tap to Demo</span>
+      </div>
+    `;
+    div.onclick = ()=> openBot(bot.slug);
+    g.appendChild(div);
+  });
+}
+
+/* ============================
+   BOT PAGE (single file router)
+============================ */
+function openBot(slug){
+  const bot = BOTS.find(b=>b.slug===slug);
+  if(!bot) return;
+
+  // show shell
+  $("#appShell").style.display="block";
+  $("#gallery").parentElement.style.display="none";
+
+  // apply theme
+  $("#accentDot").style.background = bot.accent;
+  $("#botTitle").textContent = bot.name;
+  $("#featureHeading").textContent = bot.name + " Demo Features";
+  $("#featureDescription").textContent = bot.tagline;
+
+  $("#heroCard").src = BOT_CARDS[bot.slug];
+  $("#buyBtn").href = STRIPE_LINKS[bot.slug] || "#";
+
+  // affiliate link for this bot
+  const base = location.href.split("?")[0].replace(/#.*$/,"");
+  const ref = state.user?.email ? encodeURIComponent(state.user.email) : "affiliate";
+  $("#refLink").value = `${base}?ref=${ref}#${slug}`;
+
+  // stats
+  $("#statClicks").textContent = String(state.clicks);
+  $("#statSales").textContent = "$" + state.sales.toFixed(2);
+
+  // build feature + sample dropdowns
+  const featureSelect = $("#featureSelect");
+  featureSelect.innerHTML="";
+  bot.features.forEach((f,i)=>{
+    const opt=document.createElement("option");
+    opt.value=String(i);
+    opt.textContent=f.name;
+    featureSelect.appendChild(opt);
+  });
+
+  function rebuildSamples(){
+    const idx=parseInt(featureSelect.value,10);
+    const feat=bot.features[idx];
+    $("#sampleSelect").innerHTML="";
+    feat.samples.forEach(s=>{
+      const opt=document.createElement("option");
+      opt.value=s;
+      opt.textContent=s.slice(0,80)+(s.length>80?"...":"");
+      $("#sampleSelect").appendChild(opt);
+    });
+    $("#userInput").value = feat.samples[0];
+    $("#outputBox").textContent = "Your results will appear here…";
+    $("#upgradeNotice").style.display="none";
+  }
+
+  featureSelect.onchange=rebuildSamples;
+  rebuildSamples();
+
+  $("#copySample").onclick = ()=>{
+    const txt=$("#sampleSelect").value;
+    navigator.clipboard.writeText(txt);
+    $("#userInput").value = txt;
+  };
+
+  $("#runDemo").onclick = async ()=>{
+    const prompt = $("#userInput").value.trim();
+    if(!prompt){
+      $("#outputBox").textContent="Please type something first.";
+      return;
+    }
+    $("#outputBox").textContent="Thinking...";
+    $("#upgradeNotice").style.display="none";
+
+    const feature = bot.features[parseInt($("#featureSelect").value,10)].name;
+
+    // "Purchased mode" => Unlimited if logged in
+    if(!state.user){
+      $("#outputBox").textContent = "Please login to use full demos.";
+      return;
+    }
+
+    // If Live AI ON and API key set -> call OpenAI via browser (unsafe public use; better via server)
+    if(state.liveAI && state.apiKey){
+      try{
+        const resp = await fetch("https://api.openai.com/v1/chat/completions",{
+          method:"POST",
+          headers:{
+            "Content-Type":"application/json",
+            "Authorization":"Bearer " + state.apiKey
+          },
+          body: JSON.stringify({
+            model: "gpt-4o-mini",
+            messages: [
+              {role:"system", content:`You are ${bot.name}. Feature: ${feature}. Keep it professional, helpful, luxurious, and actionable.`},
+              {role:"user", content: prompt}
+            ],
+            temperature: 0.8
+          })
+        });
+        const data = await resp.json();
+        const text = data?.choices?.[0]?.message?.content || "No response received.";
+        $("#outputBox").textContent = text;
+      }catch(e){
+        $("#outputBox").textContent = "Live AI error: " + (e?.message || e);
+      }
+      return;
+    }
+
+    // Premium sample response fallback (unique per bot/feature)
+    $("#outputBox").textContent = generateSample(bot.name, feature, prompt);
+  };
+
+  // back
+  $("#backHome").onclick=()=>{
+    $("#appShell").style.display="none";
+    $("#gallery").parentElement.style.display="block";
+    location.hash="";
+  };
+
+  // hash
+  location.hash = slug;
+}
+
+function generateSample(botName, feature, prompt){
+  // Unique “premium” output templates per bot
+  if(botName==="PromoPix"){
+    return `✅ ${botName} — ${feature}\n\nHere are your results based on:\n"${prompt}"\n\n🔥 5 Quick Hooks:\n1) Stop scrolling — this changes everything.\n2) If you’ve been waiting for a sign… this is it.\n3) You’re one post away from your next sale.\n4) People are paying for this… you can too.\n5) Save this — you’ll need it later.\n\n📌 Caption:\nLuxury results don’t need luxury effort — let this bot run your content plan.\n\n#hashtags:\n#DigitalProducts #WorkFromHome #AIBusiness #ThaDollHouse`;
+  }
+  if(botName==="SellerPro"){
+    return `✅ ${botName} — ${feature}\n\nBased on:\n"${prompt}"\n\n💎 Offer Structure:\n• Main promise: Clear result in 7–14 days\n• Includes: templates + scripts + checklist\n• Bonus: Plug-and-play captions pack\n\n💰 Price Strategy:\n• Starter: $39\n• Pro Upsell: $79\n• VIP: $199\n\n📩 Funnel:\n1) Hook → 2) Value → 3) CTA → 4) Close\n\nWant me to draft your full sales page next?`;
+  }
+  if(botName==="CoachAI"){
+    return `✅ ${botName} — ${feature}\n\n✨ Based on:\n"${prompt}"\n\nHere’s your success plan:\n\n🌟 Daily Routine:\n• Morning: 5 min affirmations\n• Midday: 1 focused task only\n• Evening: progress reflection\n\n💛 Affirmation:\n“I move with confidence and my results follow.”\n\n✅ Your next step:\nWrite ONE sales post today. Keep it simple.`;
+  }
+  if(botName==="DesignDiva"){
+    return `✅ ${botName} — ${feature}\n\n🎨 Based on:\n"${prompt}"\n\nLuxury Palette:\n• Teal: #0AB3B3\n• Cream: #F7F3EA\n• Metallic Gold: #D7B46A\n• Ink Black: #0B0B0F\n\nPinterest Pin Style:\n• Bold headline\n• 1 strong visual\n• Minimal text\n• Gold accent underline\n\nWant matching fonts + mockup layout next?`;
+  }
+  if(botName==="GlamBot"){
+    return `✅ ${botName} — ${feature}\n\n💎 Based on:\n"${prompt}"\n\nGlow Routine:\n• Cleanse + Vitamin C AM\n• SPF daily\n• Retinol 3x per week PM\n• Hydration mask 2x per week\n\nLuxury Outfit Pick:\n• Black blazer\n• Gold jewelry accents\n• Nude heels\n• Sleek bun or soft curls\n\nYou’re giving “CEO energy” today.`;
+  }
+  if(botName==="ChefGenie"){
+    return `✅ ${botName} — ${feature}\n\n🍽 Based on:\n"${prompt}"\n\nLuxury Dish Idea:\n• Lemon garlic salmon\n• Creamy herb quinoa\n• Roasted bok choy\n\nEstimated Macros:\n• Calories: ~520\n• Protein: ~40g\n• Carbs: ~38g\n• Fat: ~22g\n\nWant a full 7-day plan with grocery list?`;
+  }
+  if(botName==="WriterSX"){
+    return `✅ ${botName} — ${feature}\n\n✍️ Based on:\n"${prompt}"\n\nOutline:\n1) Hook: the struggle\n2) The turning point\n3) The solution\n4) Action steps\n5) Call-to-action\n\nOpening paragraph draft:\n“Most people don’t fail because they aren’t capable — they fail because they never systemize their success…”`;
+  }
+  // BizBot
+  return `✅ ${botName} — ${feature}\n\nBased on:\n"${prompt}"\n\nBusiness Move:\n• Offer: $39 bot access\n• Audience: home-based entrepreneurs\n• Traffic: Pinterest + TikTok\n• Conversion: free demo → paid upgrade\n\nQuick Script:\n“I built this so you can skip the hard part — tap demo and watch what it creates.”`;
+}
+
+/* ============================
+   LOGIN / DASHBOARD / SETTINGS
+============================ */
+$("#openLogin").onclick = ()=>{
+  openModal("Login", `
+    <div class="modalGrid">
+      <div class="panel">
+        <h3>Owner Login</h3>
+        <div class="muted">Full access + affiliate dashboard.</div>
+        <div style="margin-top:10px">
+          <input id="loginEmail" placeholder="Email" value="${OWNER_LOGIN.email}">
+        </div>
+        <div style="margin-top:10px">
+          <input id="loginPass" placeholder="Password" type="password" value="${OWNER_LOGIN.pass}">
+        </div>
+        <div class="row" style="margin-top:10px">
+          <button class="btn btnGold" id="doLogin">Login</button>
+        </div>
+        <div class="small" style="margin-top:10px;opacity:.9">
+          Owner Email: <b>${OWNER_LOGIN.email}</b><br>
+          Owner Password: <b>${OWNER_LOGIN.pass}</b>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Buyer Login</h3>
+        <div class="muted">Unlimited purchased demos.</div>
+        <div style="margin-top:10px">
+          <input id="buyerEmail" value="${BUYER_LOGIN.email}">
+        </div>
+        <div style="margin-top:10px">
+          <input id="buyerPass" type="password" value="${BUYER_LOGIN.pass}">
+        </div>
+        <div class="row" style="margin-top:10px">
+          <button class="btn" id="buyerLogin">Login as Buyer</button>
+        </div>
+        <div class="small" style="margin-top:10px;opacity:.9">
+          Buyer Email: <b>${BUYER_LOGIN.email}</b><br>
+          Buyer Password: <b>${BUYER_LOGIN.pass}</b>
+        </div>
+      </div>
+    </div>
+  `);
+
+  setTimeout(()=>{
+    $("#doLogin").onclick = ()=>{
+      const email=$("#loginEmail").value.trim();
+      const pass=$("#loginPass").value.trim();
+      if(email===OWNER_LOGIN.email && pass===OWNER_LOGIN.pass){
+        state.user={email, role:"owner"};
+        localStorage.setItem("TDH_USER", JSON.stringify(state.user));
+        setStatus();
+        closeModal();
+      }else{
+        alert("Wrong owner login. Try again.");
+      }
+    };
+    $("#buyerLogin").onclick=()=>{
+      const email=$("#buyerEmail").value.trim();
+      const pass=$("#buyerPass").value.trim();
+      if(email===BUYER_LOGIN.email && pass===BUYER_LOGIN.pass){
+        state.user={email, role:"buyer"};
+        localStorage.setItem("TDH_USER", JSON.stringify(state.user));
+        setStatus();
+        closeModal();
+      }else{
+        alert("Wrong buyer login. Try again.");
+      }
+    };
+  },50);
+};
+
+$("#openDashboard").onclick = ()=>{
+  if(!state.user){
+    alert("Please login first.");
+    return;
+  }
+
+  const isOwner = state.user.role==="owner";
+  openModal("Dashboard", `
+    <div class="panel">
+      <h3>Account</h3>
+      <div class="muted">Logged in as: <b>${state.user.email}</b> (${state.user.role.toUpperCase()})</div>
+      <div class="row" style="margin-top:10px">
+        <button class="btn" id="logoutBtn">Logout</button>
+      </div>
+    </div>
+
+    <div class="dashGrid">
+      <div class="panel">
+        <h3>Affiliate System</h3>
+        <div class="muted">Referral clicks and estimated earnings are tracked in-browser.</div>
+        <div class="stat" style="margin-top:10px">
+          <b>${state.clicks}</b>
+          <div>Total clicks</div>
+        </div>
+        <div class="stat" style="margin-top:10px">
+          <b>$${state.sales.toFixed(2)}</b>
+          <div>Estimated commissions</div>
+        </div>
+        <div style="margin-top:10px" class="small">
+          Commission example: 20% per sale (editable).
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>${isOwner ? "Owner Controls" : "Buyer Tools"}</h3>
+        <div class="muted">${isOwner ? "Owner has full unlimited access." : "Buyer has full purchased demo access."}</div>
+
+        ${isOwner ? `
+          <div class="row" style="margin-top:12px">
+            <button class="btn btnGold" id="simulateSale">Simulate Affiliate Sale</button>
+            <button class="btn" id="resetAff">Reset Affiliate Stats</button>
+          </div>
+          <div class="small" style="margin-top:10px">
+            “Simulate Sale” adds commission for testing.
+          </div>
+        ` : `
+          <div class="small" style="margin-top:12px">
+            Buyers can run unlimited demos and view bot outputs.
+          </div>
+        `}
+      </div>
+    </div>
+  `);
+
+  setTimeout(()=>{
+    $("#logoutBtn").onclick=()=>{
+      localStorage.removeItem("TDH_USER");
+      state.user=null;
+      setStatus();
+      closeModal();
+    };
+
+    if(isOwner){
+      $("#simulateSale").onclick=()=>{
+        // simulate 1 sale, add commission
+        const commission = 39 * 0.20; // 20%
+        state.sales += commission;
+        localStorage.setItem("TDH_SALES", String(state.sales));
+        alert("Simulated affiliate commission added: $" + commission.toFixed(2));
+        closeModal();
+      };
+      $("#resetAff").onclick=()=>{
+        state.clicks=0; state.sales=0;
+        localStorage.setItem("TDH_CLICKS","0");
+        localStorage.setItem("TDH_SALES","0");
+        alert("Affiliate stats reset.");
+        closeModal();
+      };
+    }
+  },60);
+};
+
+$("#openSettings").onclick = ()=>{
+  openModal("Live AI Settings", `
+    <div class="panel">
+      <h3>Live AI Mode (OpenAI)</h3>
+      <div class="muted">
+        This allows demos to return real AI answers. Your API key is stored only in your browser.
+        <br><br>
+        ✅ Turn ON Live AI<br>
+        ✅ Paste your OpenAI API key<br>
+      </div>
+
+      <div class="row" style="margin-top:10px">
+        <label class="small" style="display:flex;gap:10px;align-items:center">
+          <input type="checkbox" id="liveToggle" ${state.liveAI?"checked":""}/>
+          Enable Live AI
+        </label>
+      </div>
+
+      <div style="margin-top:10px">
+        <input id="apiKeyInput" placeholder="Paste OpenAI API key here..." value="${state.apiKey ? state.apiKey : ""}">
+      </div>
+
+      <div class="row" style="margin-top:10px">
+        <button class="btn btnGold" id="saveKey">Save Settings</button>
+        <button class="btn" id="clearKey">Clear Key</button>
+      </div>
+      <div class="small" style="margin-top:10px;opacity:.9">
+        Tip: Live AI uses your key directly in browser (best practice is server-side).
+      </div>
+    </div>
+  `);
+
+  setTimeout(()=>{
+    $("#saveKey").onclick=()=>{
+      state.liveAI = $("#liveToggle").checked;
+      state.apiKey = $("#apiKeyInput").value.trim();
+      localStorage.setItem("TDH_LIVE_AI", state.liveAI ? "1":"0");
+      localStorage.setItem("TDH_API_KEY", state.apiKey);
+      closeModal();
+      alert("Saved! Live AI " + (state.liveAI?"enabled":"disabled") + ".");
+    };
+    $("#clearKey").onclick=()=>{
+      localStorage.removeItem("TDH_API_KEY");
+      state.apiKey="";
+      $("#apiKeyInput").value="";
+      alert("API key cleared.");
+    };
+  },60);
+};
+
+$("#copyRef").onclick=()=>{
+  navigator.clipboard.writeText($("#refLink").value);
+};
+
+/* ============================
+   BOOT
+============================ */
+setStatus();
+buildGallery();
+
+// if direct hash
+if(location.hash){
+  const slug=location.hash.replace("#","");
+  if(BOTS.some(b=>b.slug===slug)){
+    openBot(slug);
+  }
+}
+</script>
+
+</body>
+</html>
