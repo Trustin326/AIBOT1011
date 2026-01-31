@@ -1,3 +1,6 @@
+function isOwner() {
+  return localStorage.getItem("ownerMode") === "true";
+}
 
 function $(s,ctx=document){return ctx.querySelector(s)}
 const sleep=(ms)=>new Promise(r=>setTimeout(r,ms))
