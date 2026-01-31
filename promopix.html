@@ -1,49 +1,39 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="utf-8">
-<title>PromoPix • Tha DollHouse</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PromoPix</title>
 <link rel="stylesheet" href="style.css">
-<script defer src="main.js"></script>
-<style>:root{--accent:#E91E63;}</style>
+<script src="main.js"></script>
+<script src="owner_affiliate.js"></script>
 </head>
 
 <body>
-<nav class="nav">
-  <div class="nav-inner">
-    <div class="logo">Tha DollHouse</div>
-    <a href="index.html">Home</a>
-  </div>
-</nav>
 
-<div class="container">
-  <h1>PromoPix</h1>
-  <img class="pricing-card" src="assets/img/cards/card_promopix.png" alt="PromoPix Pricing Card">
+<h1>PromoPix</h1>
+
+<img src="assets/img/cards/card_promopix.png" class="pricing-card">
+
+<div id="demo-promopix" class="demo">
+<select class="sample">
+<option value="Pins">Pins</option>
+<option value="Captions">Captions</option>
+<option value="Hashtags">Hashtags</option>
+</select>
+
+<textarea class="prompt"></textarea>
+<textarea class="chat"></textarea>
+<button class="run">Run PromoPix</button>
+<div class="output"></div>
 </div>
 
-<div id="demo-promopix" class="demo"></div>
-
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  initDemo("demo-promopix", {
-    slug: "promopix",
-    ownerAccess: true,
-    affiliateEnabled: true,
-    pricingCard: "assets/img/cards/card_promopix.png",
-    welcome: "I’m PromoPix — your social growth assistant.",
-    example: "Create 5 Instagram captions for a beauty brand.",
-    prompts: {
-      Captions: "Write Instagram captions.",
-      Hashtags: "Generate viral hashtags.",
-      Calendar: "Build a 7-day posting calendar."
-    },
-    samples: {
-      Captions: "Glow different ✨",
-      Hashtags: "#contentcreator #brandgrowth",
-      Calendar: "Mon–Fri posting plan"
-    }
-  });
+initDemo("demo-promopix",{
+ prompts:{
+  Pins:"Generate Pinterest pins",
+  Captions:"Write Instagram captions",
+  Hashtags:"Generate viral hashtags"
+ },
+ reply:(q)=>"PromoPix Result:\n"+q
 });
 </script>
 
