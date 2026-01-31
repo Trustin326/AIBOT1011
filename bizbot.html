@@ -53,31 +53,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 </body></html>
 
-<!-- Demo Section -->
-<div id="demo-coachai" class="demo" data-mode="chat">
-  <div class="tabs">
-    <button class="tab-chat">Chat Mode</button>
-    <button class="tab-feature">Feature Mode</button>
-    <select class="sample">
-      <option value="Plan">Plan</option>
-      <option value="Funnel">Funnel</option>
-    </select>
-  </div>
-
-  <h3>Sample prompt</h3>
-  <textarea class="prompt"></textarea>
-  <button class="copy">Copy Sample</button>
-
-  <h3>Your chat message</h3>
-  <textarea class="chat" placeholder="Type your message..."></textarea>
-  <button class="run">Run</button>
-
-  <div class="output" style="white-space:pre-wrap;border:1px dashed #ccc;min-height:120px;margin-top:10px;padding:8px"></div>
-
-  <div class="notice" style="display:none;margin-top:8px;background:#111;color:#fff;padding:8px;border-radius:8px">
-    Upgrade to unlock unlimited use.
-  </div>
-</div>
 
 <!-- Demo Section -->
 <div id="demo-bizbot" class="demo" data-mode="chat">
@@ -123,4 +98,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+</script><!-- BizBot Demo -->
+<div id="demo-bizbot" class="demo" data-mode="chat"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  initDemo("demo-bizbot", {
+    slug: "bizbot",
+    pricingCard: "assets/img/cards/card_bizbot.png",
+    welcome: "Hi, I’m BizBot — your business automation AI.",
+    example: "Give me 3 digital product ideas I can sell for $7.",
+    prompts: {
+      Ideas: "Give me 3 profitable digital product ideas.",
+      Funnel: "Build a simple 3-step sales funnel.",
+      Copy: "Write high-converting ad copy."
+    },
+    samples: {
+      Ideas: "• $7 Planner\n• $7 Checklist\n• $7 Mini-course",
+      Funnel: "1) Lead magnet\n2) $7 offer\n3) Upsell",
+      Copy: "Hook → Benefit → CTA"
+    },
+    ownerAccess: true,
+    affiliateEnabled: true
+  });
+});
 </script>
+
