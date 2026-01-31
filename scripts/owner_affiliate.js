@@ -1,63 +1,39 @@
-// OWNER + AFFILIATE MASTER CONTROL
+/* =============================
+   LOGIN SYSTEM
+   ============================= */
 
-// ===== LOGIN SYSTEM =====
-function ownerLogin(email) {
-
-  if (email === "owner@thadollhouse.ai") {
-
-    localStorage.setItem("ownerMode", "true");
-    localStorage.setItem("allBotsPurchased", "true");
-
-    alert("Owner Mode Activated — Full Access Enabled");
-
-    enableOwnerFeatures();
-  }
-}
-
-// ===== ENABLE OWNER FEATURES =====
-function enableOwnerFeatures() {
-
-  // Remove upgrade notices
-  document.querySelectorAll(".notice").forEach(n => {
-    n.style.display = "none";
-  });
-
-  // Unlock all run buttons
-  document.querySelectorAll(".run").forEach(btn => {
-    btn.disabled = false;
-  });
-
-  // Remove demo limits if exist
-  window.demoUnlimited = true;
-
-  console.log("Owner Full Access Enabled");
-}
-
-// ===== AUTO CHECK ON LOAD =====
-document.addEventListener("DOMContentLoaded", () => {
-
-  if (localStorage.getItem("ownerMode") === "true") {
-    enableOwnerFeatures();
-  }
-
-});
-
-// ===== LOGOUT =====
-function ownerLogout() {
-  localStorage.removeItem("ownerMode");
-  localStorage.removeItem("allBotsPurchased");
+window.loginOwner = function(){
+  localStorage.setItem("tdh_role","owner");
+  localStorage.setItem("tdh_purchased","true");
+  alert("Owner mode enabled — Full Access");
   location.reload();
-}
+};
 
-// ===== AFFILIATE TRACKING =====
-function trackAffiliateClick() {
-  let clicks = Number(localStorage.getItem("affClicks") || 0);
-  clicks++;
-  localStorage.setItem("affClicks", clicks);
-}
+window.loginBuyer = function(){
+  localStorage.setItem("tdh_role","buyer");
+  localStorage.setItem("tdh_purchased","true");
+  alert("Buyer mode enabled — Purchased Access");
+  location.reload();
+};
 
-function simulateAffiliateSale() {
-  let sales = Number(localStorage.getItem("affSales") || 0);
-  sales++;
-  localStorage.setItem("affSales", sales);
-}
+window.logoutUser = function(){
+  localStorage.clear();
+  location.reload();
+};
+
+/* =============================
+   AFFILIATE DASHBOARD
+   ============================= */
+
+window.simulateAffiliateSale = function(){
+  let earnings = Number(localStorage.getItem("tdh_aff_earn") || 0);
+  earnings += 7.80;
+  localStorage.setItem("tdh_aff_earn", earnings.toFixed(2));
+  alert("Affiliate commission added");
+};
+
+window.resetAffiliateStats = function(){
+  localStorage.removeItem("tdh_aff_clicks");
+  localStorage.removeItem("tdh_aff_earn");
+  alert("Affiliate stats reset");
+};
