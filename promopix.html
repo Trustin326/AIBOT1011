@@ -1,99 +1,51 @@
-<!doctype html><html lang="en" ><h<script src="https://unpkg.com/@mlc-ai/web-llm/dist/web-llm.min.js"></script>
-ead>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PromoPix • Tha Doll House</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PromoPix • Tha DollHouse</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="style.css">
 <script defer src="main.js"></script>
-<style>:root{--accent:#2B9CA3;}</style>
-</head><
-body >
-<nav class="nav"><div class="nav-inner">
-  <div class="logo">Tha Doll House</div>
-  <div class="nav-links">
+<style>:root{--accent:#E91E63;}</style>
+</head>
+
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo">Tha DollHouse</div>
     <a href="index.html">Home</a>
-    <a href="index.html#bots">Bots</a>
   </div>
-</div></nav>
+</nav>
+
 <div class="container">
-
-
-<script>
-document.addEventListener('DOMContentLoaded', ()=> {
-  initDemo('demo-promopix', {
-    welcome: "Hi, I'm PromoPix! Try Chat or Feature Mode.",
-    example: "Give 3 pin ideas for a $7 template pack launch.",
-    prompts: {"Pins": "Give 3 pin ideas for a $7 template pack launch.", "Captions": "Write 2 captions with CTA and 5 hashtags each.", "Calendar": "Plan 3 days of posts (platforms + topics)."},
-    samples: {"Pins": "Example Pins result...", "Captions": "Example Captions result...", "Calendar": "Example Calendar result..."},
-    reply: (q)=>"PromoPix preview: " + q + "\n• Option A\n• Option B\n• Option C"
-  });
-});
-</script>
-</div><div class="footer">© Tha Doll House</div><script src="main.js"></script>
-  <script src="main.js"></script>
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    initDemo("demo-promopix", {
-      slug: "promopix",
-      welcome: "Hi, I’m Promopix — let’s plan your success!",
-      example: "Create a 30-day plan or task for this bot.",
-      prompts: {
-        Plan: "Give me a plan related to promopix.",
-        Funnel: "Outline a strategy funnel for promopix."
-      },
-      samples: {
-        Plan: "• Step One\n• Step Two\n• Step Three",
-        Funnel: "1) Idea\n2) Execution\n3) Result"
-      }
-    });
-  });
-  </script>
-<script src="fix_cards.js"></script>
-<script src="owner_affiliate.js"></script>
-</body></html>
-
-
-<!-- Demo Section -->
-<div id="demo-promopix" class="demo" data-mode="chat">
-  <div class="tabs">
-    <button class="tab-chat">Chat Mode</button>
-    <button class="tab-feature">Feature Mode</button>
-    <select class="sample">
-      <option value="Plan">Plan</option>
-      <option value="Funnel">Funnel</option>
-    </select>
-  </div>
-
-  <h3>Sample prompt</h3>
-  <textarea class="prompt"></textarea>
-  <button class="copy">Copy Sample</button>
-
-  <h3>Your chat message</h3>
-  <textarea class="chat" placeholder="Type your message..."></textarea>
-  <button class="run">Run</button>
-
-  <div class="output" style="white-space:pre-wrap;border:1px dashed #ccc;min-height:120px;margin-top:10px;padding:8px"></div>
-
-  <div class="notice" style="display:none;margin-top:8px;background:#111;color:#fff;padding:8px;border-radius:8px">
-    Upgrade to unlock unlimited use.
-  </div>
+  <h1>PromoPix</h1>
+  <img class="pricing-card" src="assets/img/cards/card_promopix.png" alt="PromoPix Pricing Card">
 </div>
 
-<!-- Script for promopix Demo -->
-<script src="main.js"></script>
+<div id="demo-promopix" class="demo"></div>
+
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  initDemo('demo-promopix', {
-    slug: 'promopix',
-    welcome: "Hi, I’m Promopix — your AI assistant!",
-    example: "Give me a 30-day plan for promopix.",
+document.addEventListener("DOMContentLoaded", () => {
+  initDemo("demo-promopix", {
+    slug: "promopix",
+    ownerAccess: true,
+    affiliateEnabled: true,
+    pricingCard: "assets/img/cards/card_promopix.png",
+    welcome: "I’m PromoPix — your social growth assistant.",
+    example: "Create 5 Instagram captions for a beauty brand.",
     prompts: {
-      Plan: "Write a sample task plan related to promopix.",
-      Funnel: "Outline a strategy funnel for promopix."
+      Captions: "Write Instagram captions.",
+      Hashtags: "Generate viral hashtags.",
+      Calendar: "Build a 7-day posting calendar."
     },
     samples: {
-      Plan: "• Step One\n• Step Two\n• Step Three",
-      Funnel: "1) Idea\n2) Execution\n3) Result"
+      Captions: "Glow different ✨",
+      Hashtags: "#contentcreator #brandgrowth",
+      Calendar: "Mon–Fri posting plan"
     }
   });
 });
 </script>
+
+</body>
+</html>
