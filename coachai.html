@@ -1,126 +1,26 @@
-<!doctype html><html lang="en" ><head<script src="https://unpkg.com/@mlc-ai/web-llm/dist/web-llm.min.js"></script>
->
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CoachAI • Tha Doll House</title>
-<link rel="stylesheet" href="style.css">
-<script defer src="main.js"></script>
-<style>:root{--accent:#0B7F86;}</style>
-</head>
-<body >
-  <!-- AUTO hero -->
-  
-  <!-- Auto-inserted hero for coachai -->
-<nav class="nav"><div class="nav-inner">
-  <div class="logo">Tha Doll House</div>
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="index.html#bots">Bots</a>
-  </div>
-</div></nav>
-<div class="container">
+<h1>CoachAI</h1>
+<img src="assets/img/cards/card_coachai.png" class="pricing-card">
 
-<script>
-document.addEventListener('DOMContentLoaded', ()=> {
-  initDemo('demo-coachai', {
-    welcome: "Hi, I'm CoachAI! Try Chat or Feature Mode.",
-    example: "Design a 2-week habit plan using 20-minute focus blocks.",
-    prompts: {"Habits": "Design a 2-week habit plan using 20-minute focus blocks.", "Affirmations": "Create 10 affirmations for confidence and consistency.", "Timeline": "Map the next 30 days to finish a mini-course."},
-    samples: {"Habits": "Example Habits result...", "Affirmations": "Example Affirmations result...", "Timeline": "Example Timeline result..."},
-    reply: (q)=>"CoachAI preview: " + q + "\n• Option A\n• Option B\n• Option C"
-  });
-});
-</script>
-</div><div class="footer">© Tha Doll House</div><script src="main.js"></script>
-  <script src="main.js"></script>
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    initDemo("demo-coachai", {
-      slug: "coachai",
-      welcome: "Hi, I’m Coachai — let’s plan your success!",
-      example: "Create a 30-day plan or task for this bot.",
-      prompts: {
-        Plan: "Give me a plan related to coachai.",
-        Funnel: "Outline a strategy funnel for coachai."
-      },
-      samples: {
-        Plan: "• Step One\n• Step Two\n• Step Three",
-        Funnel: "1) Idea\n2) Execution\n3) Result"
-      }
-    });
-  });
-  </script><script src="fix_cards.js"></script>
-<script src="owner_affiliate.js"></script>
+<div id="demo-coachai" class="demo">
+<select class="sample">
+<option value="Focus">Focus</option>
+<option value="Mindset">Mindset</option>
+<option value="Goals">Goals</option>
+</select>
 
-</body></html>
-
-<!-- Demo Section -->
-<div id="demo-coachai" class="demo" data-mode="chat">
-  <div class="tabs">
-    <button class="tab-chat">Chat Mode</button>
-    <button class="tab-feature">Feature Mode</button>
-    <select class="sample">
-      <option value="Plan">Plan</option>
-      <option value="Funnel">Funnel</option>
-    </select>
-  </div>
-
-  <h3>Sample prompt</h3>
-  <textarea class="prompt"></textarea>
-  <button class="copy">Copy Sample</button>
-
-  <h3>Your chat message</h3>
-  <textarea class="chat" placeholder="Type your message..."></textarea>
-  <button class="run">Run</button>
-
-  <div class="output" style="white-space:pre-wrap;border:1px dashed #ccc;min-height:120px;margin-top:10px;padding:8px"></div>
-
-  <div class="notice" style="display:none;margin-top:8px;background:#111;color:#fff;padding:8px;border-radius:8px">
-    Upgrade to unlock unlimited use.
-  </div>
+<textarea class="prompt"></textarea>
+<textarea class="chat"></textarea>
+<button class="run">Run CoachAI</button>
+<div class="output"></div>
 </div>
 
-<!-- Demo Section -->
-<div id="demo-coachai" class="demo" data-mode="chat">
-  <div class="tabs">
-    <button class="tab-chat">Chat Mode</button>
-    <button class="tab-feature">Feature Mode</button>
-    <select class="sample">
-      <option value="Plan">Plan</option>
-      <option value="Funnel">Funnel</option>
-    </select>
-  </div>
-
-  <h3>Sample prompt</h3>
-  <textarea class="prompt"></textarea>
-  <button class="copy">Copy Sample</button>
-
-  <h3>Your chat message</h3>
-  <textarea class="chat" placeholder="Type your message..."></textarea>
-  <button class="run">Run</button>
-
-  <div class="output" style="white-space:pre-wrap;border:1px dashed #ccc;min-height:120px;margin-top:10px;padding:8px"></div>
-
-  <div class="notice" style="display:none;margin-top:8px;background:#111;color:#fff;padding:8px;border-radius:8px">
-    Upgrade to unlock unlimited use.
-  </div>
-</div>
-
-<!-- Script for coachai Demo -->
-<script src="main.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  initDemo('demo-coachai', {
-    slug: 'coachai',
-    welcome: "Hi, I’m Coachai — your AI assistant!",
-    example: "Give me a 30-day plan for coachai.",
-    prompts: {
-      Plan: "Write a sample task plan related to coachai.",
-      Funnel: "Outline a strategy funnel for coachai."
-    },
-    samples: {
-      Plan: "• Step One\n• Step Two\n• Step Three",
-      Funnel: "1) Idea\n2) Execution\n3) Result"
-    }
-  });
+initDemo("demo-coachai",{
+ prompts:{
+  Focus:"Create a daily focus routine",
+  Mindset:"Write affirmations",
+  Goals:"Create a 30 day plan"
+ },
+ reply:(q)=>"CoachAI Result:\n"+q
 });
 </script>
