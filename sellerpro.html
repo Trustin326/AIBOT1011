@@ -2,14 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>SellerPro • Tha DollHouse</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SellerPro • Tha DollHouse</title>
+
 <link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/@mlc-ai/web-llm/dist/web-llm.min.js"></script>
 <script defer src="main.js"></script>
-<style>:root{--accent:#4CAF50;}</style>
+
+<style>
+:root{ --accent:#0c554f; }
+</style>
 </head>
 
 <body>
+
 <nav class="nav">
   <div class="nav-inner">
     <div class="logo">Tha DollHouse</div>
@@ -19,30 +25,40 @@
 
 <div class="container">
   <h1>SellerPro</h1>
-  <img class="pricing-card" src="assets/img/cards/card_sellerpro.png" alt="SellerPro Pricing Card">
+
+  <!-- MATCHED PRICING CARD -->
+  <img class="pricing-card"
+  src="assets/img/cards/card_sellerpro.png"
+  alt="SellerPro Pricing Card">
+
 </div>
 
 <div id="demo-sellerpro" class="demo"></div>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  initDemo("demo-sellerpro", {
-    slug: "sellerpro",
-    ownerAccess: true,
-    affiliateEnabled: true,
-    pricingCard: "assets/img/cards/card_sellerpro.png",
-    welcome: "Welcome to SellerPro — let’s scale your sales.",
-    example: "Create a $39 digital product funnel.",
-    prompts: {
-      Offer: "Design a digital offer.",
-      Pricing: "Set product pricing tiers.",
-      Funnel: "Build a sales funnel."
+document.addEventListener("DOMContentLoaded", ()=>{
+  initDemo("demo-sellerpro",{
+
+    slug:"sellerpro",
+    ownerAccess:true,
+    affiliateEnabled:true,
+    pricingCard:"assets/img/cards/card_sellerpro.png",
+
+    welcome:"Welcome to SellerPro — build and scale offers fast.",
+    example:"Create a $39 digital product funnel.",
+
+    prompts:{
+      Offer:"Design a digital product offer.",
+      Pricing:"Create 3 pricing tiers.",
+      Funnel:"Build a simple funnel."
     },
-    samples: {
-      Offer: "$39 toolkit",
-      Pricing: "$39 / $79 / $149",
-      Funnel: "Lead → Offer → Upsell"
+
+    samples:{
+      Offer:"$39 Starter Toolkit",
+      Pricing:"$39 / $79 / $149",
+      Funnel:"Lead → Offer → Upsell"
     }
+
   });
 });
 </script>
