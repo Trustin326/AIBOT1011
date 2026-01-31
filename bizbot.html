@@ -1,52 +1,45 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>BizBot • Tha DollHouse</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="style.css">
-<script src="https://unpkg.com/@mlc-ai/web-llm/dist/web-llm.min.js"></script>
-<script defer src="main.js"></script>
-<style>:root{--accent:#0B7F86;}</style>
-</head>
+<div id="demo-bizbot" class="demo">
 
-<body>
-<nav class="nav">
-  <div class="nav-inner">
-    <div class="logo">Tha DollHouse</div>
-    <a href="index.html">Home</a>
-  </div>
-</nav>
+<select class="sample">
+<option value="Ideas">Ideas</option>
+<option value="Funnel">Funnel</option>
+<option value="Offer">Offer</option>
+</select>
 
-<div class="container">
-  <h1>BizBot</h1>
-  <img class="pricing-card" src="assets/img/cards/card_bizbot.png" alt="BizBot Pricing Card">
+<textarea class="prompt"></textarea>
+
+<textarea class="chat"></textarea>
+
+<button class="run">Run</button>
+
+<div class="output"></div>
+
+<div class="notice" style="display:none">
+Upgrade to unlock unlimited use
 </div>
 
-<div id="demo-bizbot" class="demo"></div>
+</div>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  initDemo("demo-bizbot", {
-    slug: "bizbot",
-    ownerAccess: true,
-    affiliateEnabled: true,
-    pricingCard: "assets/img/cards/card_bizbot.png",
-    welcome: "Hi, I’m BizBot — your business automation AI.",
-    example: "Give me 3 digital product ideas I can sell for $7.",
-    prompts: {
-      Ideas: "Give me 3 profitable digital product ideas.",
-      Funnel: "Build a simple 3-step sales funnel.",
-      Copy: "Write high-converting ad copy."
-    },
-    samples: {
-      Ideas: "• $7 Planner\n• $7 Checklist\n• $7 Mini Course",
-      Funnel: "1) Lead Magnet\n2) $7 Offer\n3) Upsell",
-      Copy: "Hook → Benefit → CTA"
-    }
-  });
+initDemo("demo-bizbot",{
+ slug:"bizbot",
+
+ welcome:"BizBot Ready — Let's Build Income Streams",
+
+ prompts:{
+  Ideas:"Give me 3 $7 product ideas",
+  Funnel:"Build a 3 step funnel",
+  Offer:"Write a sales offer"
+ },
+
+ reply:(q)=>`
+BIZBOT RESULT:
+
+${q}
+
+• Income Strategy A
+• Funnel Strategy B
+• Offer Strategy C
+`
 });
 </script>
-
-</body>
-</html>
