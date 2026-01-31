@@ -1,5 +1,19 @@
-<div id="demo-bizbot" class="demo">
+<!DOCTYPE html>
+<html>
+<head>
+<title>BizBot</title>
+<link rel="stylesheet" href="style.css">
+<script src="main.js"></script>
+<script src="owner_affiliate.js"></script>
+</head>
 
+<body>
+
+<h1>BizBot</h1>
+
+<img src="assets/img/cards/card_bizbot.png" class="pricing-card">
+
+<div id="demo-bizbot" class="demo">
 <select class="sample">
 <option value="Ideas">Ideas</option>
 <option value="Funnel">Funnel</option>
@@ -7,39 +21,21 @@
 </select>
 
 <textarea class="prompt"></textarea>
-
 <textarea class="chat"></textarea>
-
-<button class="run">Run</button>
-
+<button class="run">Run BizBot</button>
 <div class="output"></div>
-
-<div class="notice" style="display:none">
-Upgrade to unlock unlimited use
-</div>
-
 </div>
 
 <script>
 initDemo("demo-bizbot",{
- slug:"bizbot",
-
- welcome:"BizBot Ready — Let's Build Income Streams",
-
  prompts:{
-  Ideas:"Give me 3 $7 product ideas",
-  Funnel:"Build a 3 step funnel",
-  Offer:"Write a sales offer"
+  Ideas:"Give me 3 $7 digital product ideas",
+  Funnel:"Build me a funnel for a $7 ebook",
+  Offer:"Write a high converting offer"
  },
-
- reply:(q)=>`
-BIZBOT RESULT:
-
-${q}
-
-• Income Strategy A
-• Funnel Strategy B
-• Offer Strategy C
-`
+ reply:(q)=>"BizBot Result:\n"+q
 });
 </script>
+
+</body>
+</html>
